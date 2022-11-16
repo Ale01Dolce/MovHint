@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
 
 mongoose.connect(process.env.MONGODB_LOGIN);
 
+app.use("/", require("./startup/routesInit"))
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
