@@ -1,24 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" initial-scale=1.0">
-    <title>Document</title>
+    <title>MovHint</title>
+    <!--CSS Herf for include stylesheet in the html file-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <!--Fonts Href link for use this fonts in the css part-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e8910d7f9d.js" crossorigin="anonymous"></script>
 </head>
+<body class="landing is-preload">
 
-<body>
-    <div id="g_id_onload" data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
-        data-context="signup" data-ux_mode="popup" data-login_uri="http://localhost:3000/signup/google"
-        data-auto_prompt="false">
-    </div>
+<!-- Tag "div" is used for create a containers for contents of the page, also the tag "section for divide in section the paragraph of the website."-->
 
-    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
-        data-size="large" data-logo_alignment="left">
-    </div>
+<!-- Page Wrapper -->
+<div id="page-wrapper">
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1><a href="index.html">MovHint</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <!--MENU-->
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                        <!--Unordered list for implements menu pages-->
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">Sign In</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <h2>MovHint</h2>
+            <p>We Recommend,<br />
+                You Watch.</p>
+            <ul class="actions special">
+                <li><a href="#" class="button primary">GET STARTED</a></li>
+            </ul>
+        </div>
+        <a href="#one" class="more scrolly">Learn More</a>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="wrapper style1 special">
+        <div class="inner">
+            <header class="major">
+                <h2>HOW IT WORKS?</h2>
+                <p class="cit">(“Mama always said life was like a box of chocolates. You never know what you're gonna get.”)</p>
+                <p>The basic idea is to create a web app that gathers, through a series of questions, various information from the users</br>
+                    (ex: “How much free time do you have in a day?”, “What’s your favorite hobby?”, “Who is your favorite actor?”, etc.) </br>
+                    So, it is possible to recommend a series of movies, even belonging to different genres, which follow the user’s preferences.
+                </p>
+            </header>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper alt style2">
+        <section class="spotlight">
+            <div class="content">
+                <h2>“THERE'S NO PLACE LIKE HOME.”</h2>
+                <p>If are searching for a movie that was reccomend to you before? You can visit the "dashboard" page. This part is about all your recent viewed movies with MovHint system.</p>
+            </div>
+        </section>
+        <section class="spotlight">
+            <div class="content">
+                <h2>"MAY THE FORCE<br />
+                    BE WITH YOU"</h2>
+                <p>With MovHint, You can leave a rating for movies you've already seen. Your ratings will be very useful for us to improve our service and recommend more and more films that are right for you.</p>
+            </div>
+        </section>
+        <section class="spotlight">
+            <div class="content">
+                <h2>“I'LL HAVE WHAT SHE'S HAVING.”</h2>
+                <p>Another cool feature, You can share your recommended movies on your social networks with your friends.</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Sign up or log in section (CTA) -->
+    <section id="cta" class="wrapper style4">
+        <div class="inner">
+            <header>
+                <h2>“YOU HAD ME AT "HELLO".”</h2>
+                <p>Sign up, or sign in if you have already an account, and find your movie now!.</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a href="#" class="button fit primary">SIGN UP</a></li>
+                <li><a href="#" class="button fit">SIGN IN</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa-brands fa-facebook-f"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; MovHint srl. 2022/23</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- JavaScripts for include coding part in the HTML file -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
 </body>
-
 </html>
