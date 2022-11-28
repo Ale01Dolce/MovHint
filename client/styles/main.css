@@ -3801,7 +3801,7 @@ body.is-preload #banner:after {
 
 /* Main */
 
-#main > header {
+#page-wrapper > #banner {
     padding: 12em 0 10em 0 ;
     background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../image/banner.jpg");
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../image/banner.jpg");
