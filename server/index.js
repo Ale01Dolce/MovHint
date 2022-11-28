@@ -2,15 +2,24 @@ require("dotenv").config();
 const express = require('express')
 const mongoose = require("mongoose");
 const app = express()
+const cors = require('cors');
+
+const corsOption = {
+  origin: ['http://localhost:5000'],
+  credentials: true,
+};
+
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+mongoose.connect(process.env.MONGODB_LOGIN);
 
-await mongoose.connect(process.env.MONGODB_LOGIN);
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(cors(corsOption));
 
-app.use("/", require("./startup/routesInit"))
+
+app.use("/api", require("./startup/routesInit"))
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
