@@ -35,12 +35,22 @@
         <ul>
             <li>
                 <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
-                     data-size="large" data-logo_alignment="left">
+                     data-size="large" data-logo_alignment="left" style="display: inline-block">
                 </div>
             </li>
             <li>
-                <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
-                     data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
+                <div id="spinner"
+                    style="
+                        background: #4267b2;
+                        border-radius: 5px;
+                        color: white;
+                        height: 40px;
+                        text-align: center;
+                        width: 250px;">
+                        Loading
+                        <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
+                            data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
+                    </div>
             </li>
         </ul>
     </div>
@@ -63,7 +73,23 @@
                 xfbml: true,
                 version: 'v15.0'
             });
+            
+            var hasRendered = false
+            var finished_rendering = function() {
+                if(!hasRendered) {
+                    console.log("finished rendering plugins");
+                    var spinner = document.getElementById("spinner");
+                    spinner.removeAttribute("style");
+                    console.log(spinner.childNodes)
+                    spinner.removeChild(spinner.childNodes[0]);
+                    hasRendered = true
+                }
+            }
+            
+            FB.Event.subscribe('xfbml.render', finished_rendering);
         };
+
+
     </script>
 
     <div id="g_id_onload" data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
