@@ -2171,6 +2171,7 @@ ul.actions {
     list-style: none;
     margin-left: -1em;
     padding-left: 0;
+    justify-content: center;
 }
 
 ul.actions li {
@@ -3644,11 +3645,12 @@ body.is-menu-visible #menu {
     color: #a64dff;
     font-size: 0.8em;
     height: 8.5em;
-    left: 50%;
+    left: 50.5%;
     letter-spacing: 0.225em;
     margin-left: -8.5em;
     opacity: 1;
     outline: 0;
+    padding-top: 2.5em;
     padding-left: 0.225em;
     position: absolute;
     text-align: center;
@@ -3667,6 +3669,7 @@ body.is-menu-visible #menu {
     display: block;
     height: 1.5em;
     left: 50%;
+    top: 60%;
     margin: 0 0 0 -0.75em;
     position: absolute;
     width: 1.5em;

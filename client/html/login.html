@@ -1,22 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log In</title>
+    <!--CSS Herf for include stylesheet in the html file-->
+    <link rel="stylesheet" href="../styles/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../styles/noscript.css" />
+    </noscript>
+    <!--Fonts Href link for use this fonts in the css part-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e8910d7f9d.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="landing is-preload">
+    <!-- Tag "div" is used for create a containers for contents of the page, also the tag "section for divide in section the paragraph of the website."-->
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt"></header>
+
+        <!-- Section where the buttons of Log In are -->
+        <section id="banner">
+            <div class="inner">
+                <h2>Log In</h2>
+                <p>If you don't have a MovHint account yet,<br />
+                    you can sign up with one of the following options:</p>
+
+                <div id="g_id_onload" data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
+                     data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:3000/api/login/google"
+                     data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+                     data-size="large" data-logo_alignment="left">
+                </div>
+
+
+                <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
+                     data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
+            </div>
+            <div id="fb-root"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer"></footer>
+    </div>
+
+
+    <!-- JavaScripts for include coding part in the HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../js/includepart.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.scrollex.min.js"></script>
+    <script src="../js/jquery.scrolly.min.js"></script>
+    <script src="../js/browser.min.js"></script>
+    <script src="../js/breakpoints.min.js"></script>
+    <script src="../js/main.js"></script>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../js/login.js"></script>
 
-    <div id="fb-root"></div>
-
     <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=5587835987971858&autoLogAppEvents=1"
-        nonce="wG4Rd6xu"></script>
+            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=5587835987971858&autoLogAppEvents=1"
+            nonce="wG4Rd6xu"></script>
 
     <script>
         window.fbAsyncInit = function () {
@@ -28,19 +81,6 @@
             });
         };
     </script>
-
-    <div id="g_id_onload" data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
-        data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:3000/api/login/google"
-        data-auto_prompt="false">
-    </div>
-
-    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
-        data-size="large" data-logo_alignment="left">
-    </div>
-
-
-    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
-        data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
 </body>
 
 </html>
