@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
     letter-spacing: 0.110em;
     line-height: 1em;
-    margin: 0 0 1em 0;
+    margin: 0 0 0.5em 0;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3702,7 +3702,7 @@ body.is-menu-visible #menu {
     }
 
     #banner h2 {
-        font-size: 1.25em;
+        font-size: 3.25em;
     }
 
     #banner br {
@@ -3985,4 +3985,47 @@ body.is-mobile.landing .wrapper.style4 {
 
 body.is-mobile.landing #footer {
     background-color: #1d242a;
+}
+
+/*Form log in*/
+
+.container-f{
+    background: linear-gradient( 135deg, #7300e6, #6699ff);
+    width:75%;
+    min-width: 420px;
+    padding: 35px 50px;
+    transform: tarnslate(-50%,-50%);
+    position: absolute;
+    left:10%;
+    top:30%;
+    border-radius: 10px;
+    box-shadow: 20px 30px 25px rgba(0,0,0,0.15);
+}
+
+.container-f h1{
+    font-family: 'Fugaz One', cursive;
+    font-size: 50px;
+    text-align: center;
+    margin: 0 0 0.3em 0;
+
+}
+
+.container-f .con-des{
+    text-align: center;
+    position: relative;
+    font: inherit;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.container-f ul{
+    padding-top: 20px;
+    list-style: none;
+    vertical-align: middle;
+
+}
+
+.container-f ul li{
+    padding-top: 20px;
+    text-align: center;
 }
