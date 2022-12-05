@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovHint - Dashboard</title>
+  <!--ref to css and font-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+  <!--Manifest-->
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="white"/>
+
+  <!--Apple touch icon-->
+  <link rel="apple-touch-icon" href="icons/180.png">
+</head>
+<body class="dashboard-b">
+
+<nav>
+  <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="login.html">Log In</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+</nav>
+
+<br><br><br>
+
+<header>
+  <div class="dashboard">
+      <h1>Dashboard</h1>
+    <p id="one">In this section You can view all recent recommended movies on <b>MovHint<b>,<br>and remember: <span class="cit">“There's no place like home.”</span></p>
+    </div>
+</header>
+
+<section>
+<footer class="footer">
+
+
+  <div class="copyright">
+    <small>&copy; MovHint srl. 2022/23</small>
+  </div>
+</footer>
+
+</section>
+
+<!-- JavaScripts for include coding part in the HTML file -->
+<script type="text/javascript" src="js/menu.js"></script>
+<script src="js/main.js"></script>
+
+<!--Script for the interaction with Service Worker-->
+<script>
+  if("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+  }
+
+</script>
+</body>
+</html>
