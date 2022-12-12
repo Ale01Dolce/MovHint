@@ -296,12 +296,19 @@ header{
 
 }
 
-.left{
-    background: #2d2d33;
+.left-one{
+    background:  url("../image/back-info-1.png");
+    background-position: center;
     box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
 }
 
-.left h2{
+.left-two{
+    background: url("../image/back-info-3.png");
+    background-position: center;
+    box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
+}
+
+.left-one h2, .left-two h2{
     color: white;
     line-height: 1;
     font-size: 1.7rem;
@@ -310,7 +317,7 @@ header{
     padding-left: 4.2rem;
 }
 
-.left p{
+.left-one p, .left-two p{
     color: white;
     text-align: left;
     text-shadow: #222327;
@@ -319,7 +326,8 @@ header{
 }
 
 .right{
-    background: rgb(55, 55, 63);
+    background: url("../image/back-info-2.png");
+    background-position: center;
     box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
 }
 
