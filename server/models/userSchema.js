@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const PreferenceSchema = require("./preferenceSchema")
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -6,6 +7,8 @@ const userSchema = new Schema({
     fullname: String,
     nickname: String,
     sessionToken: String,
+    watchedMovies: [Number],
+    preferences: PreferenceSchema
 })
 
 const User = mongoose.model("User", userSchema)

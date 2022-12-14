@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require('express')
 const mongoose = require("mongoose");
+var cookieParser = require('cookie-parser')
 const app = express()
 const cors = require('cors');
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGODB_LOGIN);
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors(corsOption));
+app.use(cookieParser())
 
 
 app.use("/api", require("./startup/routesInit"))
