@@ -22,7 +22,12 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
 
     const response = await getPopular(req.body)
     console.log(response)
-    res.send(JSON.stringify(response))
+
+    if(!response) {
+        res.statusCode(500).send()
+    } else {
+        res.send(JSON.stringify(response))
+    }
     
     //res.redirect("http://localhost:5000/client/")
 })
@@ -34,7 +39,7 @@ async function getPopular(filters) {
     let movieList = []
 
     let currentPage = 1
-    while(movieList.length < 20 && currentPage < 6) {
+    while(movieList.length < 20 && currentPage < 3) {
 
         try {
             var response = await axios.get(popularEndpoint, {
@@ -48,28 +53,45 @@ async function getPopular(filters) {
         catch(error) {
             if(error.response) {
                 console.log(error.response.data)
+                return []
             }
         }
 
-        // console.log(response.data.results)
+        console.log(response)
+        if(!response) { return [] }
 
         for(elem of response.data.results) {
             filters.adult = (filters.adult == "true" ? true : false)
-
             console.log(filters)
-            if(elem.adult !== filters.adult) { continue }
             
-            const found = elem.genre_ids.some(r => filters.genres.includes(r))
+            if(!filters.adult) {
+                if(elem.adult) { continue }
+            }
+            console.log("First filter")
+            
+            let found = false
+            filters.genres = filters.genres.map(Number)
+            console.log(elem.genre_ids)
+
+            for (id of elem.genre_ids) {
+                if(filters.genres.includes(id)) { 
+                    found = true
+                    break
+                }
+            }
+
             if(!found) { continue }
 
+            console.log("Second filter")
             let details = await axios.get(detailsEndpoint(elem.id), {
                 params: {
                     api_key: process.env.MVDB_KEY
                 }
             })
-
+            
+            //console.log(details)
             if(details.runtime > filters.length) { continue }
-
+            console.log("Third filter")
             movieList.push(elem)
         }
 

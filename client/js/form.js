@@ -1,5 +1,11 @@
 /** @type {HTMLFormElement} */
 let form = document.getElementById("form-preferences")
+let movie_card_template = ""
+
+fetch("html/movie_card.ejs")
+        .then(r => r.text())
+        .then(text => movie_card_template = text)
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -42,7 +48,14 @@ form.addEventListener("submit", (e) => {
     })
     .then(res => res.json())
     .then(json => {
+        /** @type {HTMLFormElement} */
+        let suggestionsForm = document.getElementById("second-part-form")
+
         console.log(json)
+        for (elem of json) {
+            const html = ejs.render(movie_card_template, {movie: elem})
+            suggestionsForm.innerHTML += html
+        }
     })
 
 
