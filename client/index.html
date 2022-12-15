@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovHint</title>
+    <!--Favicon title-->
+    <link rel="icon" type="image/x-icon" href="icons/ios/180.png">
+    <!--ref to css and font-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <!--Manifest-->
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="white"/>
+
+    <!--Apple touch icon-->
+    <link rel="apple-touch-icon" href="icons/180.png">
+</head>
+
+<body>
+
+<nav>
+    <a href="#" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="login.html">Log In</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+
+    <div class="main">
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+</nav>
+<br><br><br><br><br><br><br>
+<header>
+    <div class="text-box">
+        <h1>MovHint</h1>
+        <h3>WE RECOMMEND, YOU WATCH!</h3>
+        <div class="row">
+            <a href="login.html">GET STARTED</a>
+            <a href="#one">LEARN MORE <span>&#8595;</span></a>
+            <p id="one">You can explore more about MovHint and <br>his cool features.</p>
+        </div>
+    </div>
+</header>
+
+<section>
+    <section class="how-w">
+        <h2>HOW IT WORKS?</h2>
+        <h5>(“Mama always said life was like a box of chocolates. You never know what you're gonna get.”)</h5>
+
+        <p>The basic idea is to create a web app that gathers, through a series of questions, various information from the users<br>
+            (ex: “How much free time do you have in a day?”, “What’s your favorite hobby?”, “Who is your favorite actor?”, etc.)<br>
+            So, it is possible to recommend a series of movies, even belonging to different genres, which follow the user’s preferences.</p>
+    </section>
+    <section class="left-one">
+        <h2>“THERE'S NO PLACE <br>
+            LIKE HOME”</h2>
+
+        <p>If are searching for a movie that was reccomend to you before? <br>You can visit the "dashboard" page.
+            This part is about all your recent viewed <br>
+            movies with MovHint system.</p>
+    </section>
+    <section class="right">
+        <h2>"MAY THE FORCE<br>
+            BE WITH YOU"</h2>
+
+        <p>With MovHint, You can leave a rating for movies you've already seen. <br>
+            Your ratings will be very useful for us to improve our service and recommend <br>
+            more and more films that are right for you.</p>
+    </section>
+    <section class="left-two">
+        <h2>“I'LL HAVE WHAT <br>
+            SHE'S HAVING”</h2>
+
+        <p>Another cool feature, You can share your recommended movies <br>
+            on your social networks with your friends.</p>
+    </section>
+
+
+    <footer class="footer">
+
+
+        <div class="copyright">
+            <small>&copy; MovHint srl. 2022/23</small>
+        </div>
+    </footer>
+
+</section>
+
+<!-- JavaScripts for include coding part in the HTML file -->
+<script type="text/javascript" src="js/menu.js"></script>
+<script src="js/main.js"></script>
+
+<!--Script for the interaction with Service Worker-->
+<script>
+    if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js")
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovHint - Log In</title>
+  <!--Favicon title-->
+  <link rel="icon" type="image/x-icon" href="icons/ios/180.png">
+  <!--ref to css and font-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+<!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">-->
+  <script src="https://kit.fontawesome.com/ae37badc0b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="login.html">Log In</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+</nav>
+
+<br><br><br>
+
+<header>
+  <div class="container-f">
+    <h1>LOG IN</h1>
+    <p class="con-des">If you haven't a <b>MovHint</b> account yet,<br />
+      you can sign up with one of this following options</p>
+    <br>
+    <ul>
+      <li>
+        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+             data-size="large" data-logo_alignment="left" style="display: inline-block">
+        </div>
+      </li>
+      <li>
+        <div id="spinner">
+          <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
+               data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
+        </div>
+      </li>
+<!--      <li>-->
+<!--        <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"-->
+<!--                type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"-->
+<!--                type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>-->
+<!--      </li>-->
+
+    </ul>
+
+  </div>
+</header>
+
+<section>
+  <footer class="footer">
+
+
+    <div class="copyright">
+      <small>&copy; MovHint srl. 2022/23</small>
+    </div>
+  </footer>
+</section>
+
+<!--<section>
+    <div class="container-f">
+      <h1>LOG IN</h1>
+      <label class="con-des">If you haven't a <b>MovHint</b> account yet,<br />
+        You can sign up with one of this following options</label>
+      <br>
+      <ul>
+        <li>
+          <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+               data-size="large" data-logo_alignment="left" style="display: inline-block">
+          </div>
+        </li>
+        <li>
+          <div id="spinner">
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
+                 data-auto-logout-link="false" data-use-continue-as="false" onlogin="manageLogin()" scope="public_profile,email"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+</section>-->
+
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="js/login.js"></script>
+
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=5587835987971858&autoLogAppEvents=1"
+        nonce="wG4Rd6xu"></script>
+
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '5587835987971858',
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v15.0'
+    });
+
+    var hasRendered = false
+    var finished_rendering = function() {
+      if(!hasRendered) {
+        console.log("finished rendering plugins");
+        var spinner = document.getElementById("spinner");
+        spinner.removeAttribute("style");
+        console.log(spinner.childNodes)
+        spinner.removeChild(spinner.childNodes[0]);
+        hasRendered = true
+      }
+    }
+
+    FB.Event.subscribe('xfbml.render', finished_rendering);
+  };
+
+
+</script>
+
+<div id="g_id_onload" data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
+     data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:3000/api/login/google"
+     data-auto_prompt="false">
+</div>
+
+<script type="text/javascript" src="js/menu.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

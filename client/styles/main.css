@@ -4002,12 +4002,6 @@ body.is-mobile.landing #footer {
     box-shadow: 20px 30px 25px rgba(0,0,0,0.15);
 }
 
-form{
-    width: 100%;
-    position: relative;
-    margin: 30px auto 0 auto;
-}
-
 .container-f h1{
     font-family: 'Fugaz One', cursive;
     font-size: 50px;
@@ -4028,20 +4022,10 @@ form{
     padding-top: 20px;
     list-style: none;
     vertical-align: middle;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
 }
 
 .container-f ul li{
     padding-top: 20px;
     text-align: center;
-}
-
-.footer-form{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background:#6cf;
 }
