@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovHint - Questionary</title>
+  <!--Favicon title-->
+  <link rel="icon" type="image/x-icon" href="icons/ios/180.png">
+  <!--ref to css and font-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+  <!--Manifest-->
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="white"/>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="login.html">Log Out</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+</nav>
+
+<header class="quest-h">
+  <div class="questionary">
+    <h1>Questionary</h1>
+    <p id="one">Your answer will be used for create a unique selection of movies.</p>
+  </div>
+</header>
+
+<section>
+  <form class="quest-form">
+    <div id="content-1">
+      <label>How old are you?</label><br>
+      <input type="radio" name="age" class="larger" value="not18">Less than 18<br>
+      <input type="radio" name="age" class="larger" value="yes18">18 or more<br><br>
+
+      <label>What are your favourite type of movies?</label><br>
+      <input type="checkbox" name="fmovie">Fantasy<br>
+      <input type="checkbox" name="fmovie">Horror<br>
+      <input type="checkbox" name="fmovie">Love Story Movies<br>
+      <input type="checkbox" name="fmovie">Anime Movies<br>
+      <input type="checkbox" name="fmovie">Super Heroes Movies<br>
+      <input type="checkbox" name="fmovie">Spy Movies<br>
+      <input type="checkbox" name="fmovie">Thriller<br>
+      <input type="checkbox" name="fmovie">Documentary<br>
+      <input type="checkbox" name="fmovie">2D Cartoon Movies<br>
+      <input type="checkbox" name="fmovie">3D Cartoon Movies<br>
+      <input type="checkbox" name="fmovie">Comic<br>
+      <input type="checkbox" name="fmovie">Sport Movies<br>
+      <br>
+
+      <label>How much free time do You have in a day?</label><br>
+      <input type="radio" name="hours" class="larger" value="less_h">Less than an hour<br>
+      <input type="radio" name="hours" class="larger" value="more_h">More than an hour<br>
+      <input type="radio" name="hours" class="larger" value="more_2h">More than two hours<br>
+      <br>
+
+      <label>What's Your favourite hobby?</label><br>
+      <select>
+        <option type="radio" name="fhobby" value="Nochoice">Select your choice</option>
+        <option type="radio" name="fhobby" value="Sing">Singing</option>
+        <option type="radio" name="fhobby" value="Dance">Dancing</option>
+        <option type="radio" name="fhobby" value="Eat">Eating</option>
+        <option type="radio" name="fhobby" value="Reading">Reading</option>
+        <option type="radio" name="fhobby" value="Sport">Doing Sport</option>
+        <option type="radio" name="fhobby" value="Music">Play Music</option>
+        <option type="radio" name="fhobby" value="Games">Play Games</option>
+        <option type="radio" name="fhobby" value="Videogames">Play Videogames</option>
+        <option type="radio" name="fhobby" value="Travel">Traveling</option>
+        <option type="radio" name="fhobby" value="Prog">Programming</option>
+        <option type="radio" name="fhobby" value="Study">Studing</option>
+      </select><br><br>
+
+      <label>Form</label><br>
+
+      <input type="submit" value="submit">
+    </div>
+  </form>
+</section>
+
+<!-- JavaScripts for include coding part in the HTML file -->
+<script type="text/javascript" src="js/menu.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
