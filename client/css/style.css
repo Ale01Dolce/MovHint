@@ -365,7 +365,7 @@ header{
     padding: 1.2rem 0;
 }
 
-/*Form*/
+/*Form login*/
 
 .container-f{
     background: linear-gradient( 135deg, #7300e6, #6699ff);
@@ -470,3 +470,39 @@ header{
     }
 
 }
+
+/*Questionary form*/
+
+.quest-h{
+    position: relative;
+    top: 7rem;
+    overflow: hidden;
+    height: 23vh;
+    margin-bottom: 6rem;
+}
+
+.quest-h h1{
+    text-align: center;
+    font-size: clamp(50px, 10vw, 120px);
+    line-height: 120px;
+    margin-top: 13px;
+    color: transparent;
+    -webkit-text-stroke: 0.5px #fff;
+    background: url('../image/back.png');
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+
+.quest-h p{
+    text-align: center;
+    color: white;
+}
+
+.quest-form{
+    background: rgba(0,0,0,0.6);
+    box-shadow: 20px 30px 25px rgba(0,0,0,0.15);
+    border-radius: 10px;
+}
+
+
