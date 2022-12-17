@@ -478,7 +478,7 @@ header{
     top: 7rem;
     overflow: hidden;
     height: 23vh;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
 }
 
 .quest-h h1{
@@ -549,6 +549,13 @@ input[type="checkbox"i]{
     }
 }
 
+@media (max-width: 900px) {
+    .quest-form{
+        margin-left: 9%;
+        margin-right: 5%;
+    }
+}
+
 @media (max-width: 600px) {
     .quest-form{
         margin-left: 1%;
@@ -559,4 +566,25 @@ input[type="checkbox"i]{
         font-size: clamp(30px, 10vw, 120px);
     }
 
+}
+
+#content-1 .sub-btm{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 20px auto;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+}
+
+#content-1 .sub-btm:hover{
+    color: white;
+    background-color: deepskyblue;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 20px auto;
+    border: 2px solid deepskyblue;
+    display: flex;
+    align-items: center;
 }
