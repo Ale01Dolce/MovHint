@@ -503,6 +503,60 @@ header{
     background: rgba(0,0,0,0.6);
     box-shadow: 20px 30px 25px rgba(0,0,0,0.15);
     border-radius: 10px;
+    display: inline-block;
+    margin: 80px auto;
+    margin-left: 33%;
+    margin-right: 20%;
+}
+
+.quest-form #content-1{
+    padding: 2em 4em 2em 4em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.quest-form #content-1 .quest{
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+input[type="radio"i]{
+    margin-right: 6px;
+}
+
+input[type="checkbox"i]{
+    margin-right: 6px;
+}
+
+.quest-form #content-1 .choice{
+    color: black;
+}
+
+.text-quest{
+    color: white;
 }
 
 
+.quest-form #content-1 .sub-btm{
+    color: black;
+}
+
+@media (max-width: 1420px) {
+    .quest-form{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
+@media (max-width: 600px) {
+    .quest-form{
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .quest-h h1{
+        font-size: clamp(30px, 10vw, 120px);
+    }
+
+}
