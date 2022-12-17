@@ -17,6 +17,9 @@
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="white"/>
+
+  <!--Apple touch icon-->
+  <link rel="apple-touch-icon" href="icons/180.png">
 </head>
 <body>
 
@@ -95,6 +98,14 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script src="js/loader.js"></script>
 <script src="js/main.js"></script>
+
+<!--Script for the interaction with Service Worker-->
+<script>
+  if("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+  }
+
+</script>
 
 </body>
 </html>
