@@ -18,7 +18,7 @@
   <!--Manifest-->
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="white"/>
+  <meta name="theme-color" content="white" />
 
   <!--Apple touch icon-->
   <link rel="apple-touch-icon" href="icons/180.png">
@@ -26,7 +26,7 @@
 
 <body>
 
-<div class="loader"></div>
+  <div class="loader"></div>
 
   <nav>
     <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
@@ -53,8 +53,10 @@
       <div id="content-1">
 
         <label class="quest">How old are you?</label><br>
-        <input type="radio" id="adultyes" name="adult" value="true" class="larger" checked><span class="text-quest">Less than 18</span><br>
-        <input type="radio" id="adultno" name="adult" value="false" class="larger"><span class="text-quest"></span>18 or more</span><br><br>
+        <input type="radio" id="adultyes" name="adult" value="true" class="larger" checked><span class="text-quest">Less
+          than 18</span><br>
+        <input type="radio" id="adultno" name="adult" value="false" class="larger"><span class="text-quest">18 or
+          more</span><br><br>
 
         <label class="quest">What are your favourite type of movies?</label><br>
         <input type="checkbox" id="genre1" name="genres[]" value="28"><span class="text-quest">Action</span><br>
@@ -71,7 +73,8 @@
         <input type="checkbox" id="genre12" name="genres[]" value="10402"><span class="text-quest">Music</span><br>
         <input type="checkbox" id="genre13" name="genres[]" value="9648"><span class="text-quest">Mystery</span><br>
         <input type="checkbox" id="genre14" name="genres[]" value="10749"><span class="text-quest">Romance</span><br>
-        <input type="checkbox" id="genre15" name="genres[]" value="878"><span class="text-quest">Science Fiction</span><br>
+        <input type="checkbox" id="genre15" name="genres[]" value="878"><span class="text-quest">Science
+          Fiction</span><br>
         <input type="checkbox" id="genre16" name="genres[]" value="10770"><span class="text-quest">TV Movie</span><br>
         <input type="checkbox" id="genre17" name="genres[]" value="53"><span class="text-quest">Thriller</span><br>
         <input type="checkbox" id="genre18" name="genres[]" value="10752"><span class="text-quest">War</span><br>
@@ -90,23 +93,23 @@
           <option value="240" class="larger">04:00h</option>
         </select><br><br>
 
-      <label class="quest">What's Your favourite hobby?</label><br>
-      <select class="choice">
-        <option type="radio" name="fhobby" value="Nochoice">Select your choice</option>
-        <option type="radio" name="fhobby" value="Sing">Singing</option>
-        <option type="radio" name="fhobby" value="Dance">Dancing</option>
-        <option type="radio" name="fhobby" value="Eat">Eating</option>
-        <option type="radio" name="fhobby" value="Reading">Reading</option>
-        <option type="radio" name="fhobby" value="Sport">Doing Sport</option>
-        <option type="radio" name="fhobby" value="Music">Play Music</option>
-        <option type="radio" name="fhobby" value="Games">Play Games</option>
-        <option type="radio" name="fhobby" value="Videogames">Play Videogames</option>
-        <option type="radio" name="fhobby" value="Travel">Traveling</option>
-        <option type="radio" name="fhobby" value="Prog">Programming</option>
-        <option type="radio" name="fhobby" value="Study">Studing</option>
-      </select><br><br>
+        <label class="quest">What's Your favourite hobby?</label><br>
+        <select class="choice">
+          <option type="radio" name="fhobby" value="Nochoice">Select your choice</option>
+          <option type="radio" name="fhobby" value="Sing">Singing</option>
+          <option type="radio" name="fhobby" value="Dance">Dancing</option>
+          <option type="radio" name="fhobby" value="Eat">Eating</option>
+          <option type="radio" name="fhobby" value="Reading">Reading</option>
+          <option type="radio" name="fhobby" value="Sport">Doing Sport</option>
+          <option type="radio" name="fhobby" value="Music">Play Music</option>
+          <option type="radio" name="fhobby" value="Games">Play Games</option>
+          <option type="radio" name="fhobby" value="Videogames">Play Videogames</option>
+          <option type="radio" name="fhobby" value="Travel">Traveling</option>
+          <option type="radio" name="fhobby" value="Prog">Programming</option>
+          <option type="radio" name="fhobby" value="Study">Studing</option>
+        </select><br><br>
 
-        <label>Choose your preferred Language</label><br>
+        <label class="quest">Choose your preferred Language</label><br>
         <select id="languages" name="languages">
           <option value="af">Afrikaans</option>
           <option value="sq">Albanian - shqip</option>
@@ -251,7 +254,7 @@
           <option value="yo">Yoruba - Èdè Yorùbá</option>
           <option value="zu">Zulu - isiZulu</option>
         </select><br><br>
-        
+
         <input type="submit" value="submit">
       </div>
     </form>
@@ -261,19 +264,19 @@
 
   </form>
 
-<!-- JavaScripts for include coding part in the HTML file -->
-<script type="text/javascript" src="js/menu.js"></script>
-<script src="js/loader.js"></script>
-<script src="js/ejs.min.js"></script>
-<script src="js/main.js"></script>
+  <!-- JavaScripts for include coding part in the HTML file -->
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/ejs.min.js"></script>
+  <script src="js/main.js"></script>
 
-<!--Script for the interaction with Service Worker-->
-<script>
-  if("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js")
-  }
+  <!--Script for the interaction with Service Worker-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js")
+    }
 
-</script>
+  </script>
 
 </body>
 
