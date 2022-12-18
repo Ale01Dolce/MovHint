@@ -6,7 +6,7 @@ workbox.setConfig({
     debug: true
 });
 
-const {CacheableResponse} = workbox.cacheableResponse;
+const { CacheableResponse } = workbox.cacheableResponse;
 
 
 workbox.routing.registerRoute(
@@ -30,16 +30,16 @@ workbox.routing.registerRoute(
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'google-fonts-stylesheets',
     })
-    )
-    
-    workbox.routing.registerRoute(
-        /^https:\/\/kit\.fontawesome\.com/,
-        new workbox.strategies.StaleWhileRevalidate({
+)
+
+workbox.routing.registerRoute(
+    /^https:\/\/kit\.fontawesome\.com/,
+    new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'fontawsome-icons',
     })
 )
 
 workbox.routing.registerRoute(
-    ({request}) => request.destination === "image",
+    ({ request }) => request.destination === "image",
     new workbox.strategies.CacheFirst()
 )
