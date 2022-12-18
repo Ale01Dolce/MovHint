@@ -50,10 +50,11 @@ form.addEventListener("submit", (e) => {
     .then(json => {
         /** @type {HTMLFormElement} */
         let suggestionsForm = document.getElementById("second-part-form")
+        suggestionsForm.innerHTML = ''
 
         console.log(json)
         for (elem of json) {
-            const html = ejs.render(movie_card_template, {movie: elem})
+            const html = ejs.render(movie_card_template, {movie: elem.data})
             suggestionsForm.innerHTML += html
         }
     })

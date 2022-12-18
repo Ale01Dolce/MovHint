@@ -255,7 +255,7 @@
           <option value="zu">Zulu - isiZulu</option>
         </select><br><br>
 
-        <input type="submit" value="submit">
+        <input type="submit" value="Confirm">
       </div>
     </form>
   </section>
@@ -266,6 +266,7 @@
 
   <!-- JavaScripts for include coding part in the HTML file -->
   <script type="text/javascript" src="js/menu.js"></script>
+  <script src="js/form.js"></script>
   <script src="js/loader.js"></script>
   <script src="js/ejs.min.js"></script>
   <script src="js/main.js"></script>
@@ -275,6 +276,17 @@
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js")
     }
+
+    fetch("http://localhost:3000/api/userDetails", {
+      credentials: "include",
+      headers: { 'Content-Type': 'application/json' },
+      method: "GET"
+    })
+      .then(response => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+      })
 
   </script>
 

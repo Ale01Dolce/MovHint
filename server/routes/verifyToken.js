@@ -5,14 +5,14 @@ const router = express.Router()
 
 router.use(async (req, res, next) => {
 
-    console.log(req.cookies)
+    // console.log(req.cookies)
 
     if(!req.cookies.token) {
         res.redirect("http://localhost:5000/client/login.html")
-        next(new Error("no token header"))
+        return next(new Error("no token header"))
     }
 
-    console.log(await User.findOne({sessionToken: req.cookies.token}), jwt.verify(req.cookies.token, process.env.PRIVATE_KEY))
+    // console.log(await User.findOne({sessionToken: req.cookies.token}), jwt.verify(req.cookies.token, process.env.PRIVATE_KEY))
     
     if(await User.findOne({sessionToken: req.cookies.token}) && jwt.verify(req.cookies.token, process.env.PRIVATE_KEY)) {
         next()
@@ -20,7 +20,7 @@ router.use(async (req, res, next) => {
     } else {
         res.clearCookie("token")
         res.redirect("http://localhost:5000/client/login.html")
-        next(new Error("invalid token"))
+        return next(new Error("Invalid Token Header"))
     }
 
 })
