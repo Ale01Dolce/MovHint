@@ -26,269 +26,302 @@
 
 <body>
 
-  <div class="loader"></div>
+<div class="loader"></div>
 
-  <nav>
-    <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
-    <ul class="navbar">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="login.html">Log Out</a></li>
-    </ul>
+<nav>
+  <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="login.html">Log Out</a></li>
+  </ul>
 
-    <div class="main">
-      <div class="bx bx-menu" id="menu-icon"></div>
+  <div class="main">
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+</nav>
+
+<header class="quest-h">
+  <div class="questionary">
+    <h1>Questionary</h1>
+    <p id="one">Your answer will be used for create a unique selection of movies.</p>
+  </div>
+</header>
+
+<section class="pref-actors" id="actor-id">
+  <h1>Choose one of this actors that you prefer</h1>
+  <div class="actors">
+    <div class="i-act">
+      <h3>Leonardo DiCaprio</h3>
+      <a onclick="Remove()"><img id="a0" name="Leonardo DiCaprio" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg"></a>
     </div>
-  </nav>
-
-  <header class="quest-h">
-    <div class="questionary">
-      <h1>Questionary</h1>
-      <p id="one">Your answer will be used for create a unique selection of movies.</p>
+    <div class="i-act">
+      <h3>Jenna Ortega</h3>
+      <a onclick="Remove()"><img id="a1" name="Jenna Ortega" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/q1NRzyZQlYkxLY07GO9NVPkQnu8.jpg"></a>
     </div>
-  </header>
+    <div class="i-act">
+      <h3>Sam Worthington</h3>
+      <a onclick="Remove()"><img id="a2" name="Sam Worthington" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/blKKsHlJIL9PmUQZB8f3YmMBW5Y.jpg"></a>
+    </div>
+    <div class="i-act">
+      <h3>Tom Holland</h3>
+      <a onclick="Remove()"><img id='a3' name="Tom Holland" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/bBRlrpJm9XkNSg0YT5LCaxqoFMX.jpg"></a>
+    </div>
+    <div class="i-act">
+      <h3>Brad Pitt</h3>
+      <a onclick="Remove()"><img id='a4' name="Brad Pitt" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg"></a>
+    </div>
+    <div class="i-act">
+      <h3>Chris Hemsworth</h3>
+      <a onclick="Remove()"><img id='a5' name="Chris Hemsworth" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/jpurJ9jAcLCYjgHHfYF32m3zJYm.jpg"></a>
+    </div>
+    <div class="i-act">
+      <h3>Dwayne Johnson</h3>
+      <a onclick="Remove()"><img id='a6' name="Dwayne Johnson" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/cgoy7t5Ve075naBPcewZrc08qGw.jpg"></a>
+    </div>
+    <div class="i-act">
+      <h3>Mads Mikkelsen</h3>
+      <a onclick="Remove()"><img id='a7' name="Mads Mikkelsen" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ntwPvV4GKGGHO3I7LcHMwhXfsw9.jpg"></a>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <form class="quest-form" id="form-preferences">
-      <div id="content-1">
+<section>
+  <form class="quest-form" id="form-preferences">
+    <div id="content-1">
 
-        <label class="quest">How old are you?</label><br>
-        <input type="radio" id="adultyes" name="adult" value="true" class="larger" checked><span class="text-quest">Less
+      <label class="quest">How old are you?</label><br>
+      <input type="radio" id="adultno" name="adult" value="false" class="larger" checked><span class="text-quest">Less
           than 18</span><br>
-        <input type="radio" id="adultno" name="adult" value="false" class="larger"><span class="text-quest">18 or
+      <input type="radio" id="adultyes" name="adult" value="true" class="larger"><span class="text-quest">18 or
           more</span><br><br>
 
-        <label class="quest">What are your favourite type of movies?</label><br>
-        <input type="checkbox" id="genre1" name="genres[]" value="28"><span class="text-quest">Action</span><br>
-        <input type="checkbox" id="genre2" name="genres[]" value="12"><span class="text-quest">Adventure</span><br>
-        <input type="checkbox" id="genre3" name="genres[]" value="16"><span class="text-quest">Animation</span><br>
-        <input type="checkbox" id="genre4" name="genres[]" value="35"><span class="text-quest">Comedy</span><br>
-        <input type="checkbox" id="genre5" name="genres[]" value="80"><span class="text-quest">Crime</span><br>
-        <input type="checkbox" id="genre6" name="genres[]" value="99"><span class="text-quest">Documentary</span><br>
-        <input type="checkbox" id="genre7" name="genres[]" value="18"><span class="text-quest">Drama</span><br>
-        <input type="checkbox" id="genre8" name="genres[]" value="10751"><span class="text-quest">Family</span><br>
-        <input type="checkbox" id="genre9" name="genres[]" value="14"><span class="text-quest">Fantasy</span><br>
-        <input type="checkbox" id="genre10" name="genres[]" value="36"><span class="text-quest">History</span><br>
-        <input type="checkbox" id="genre11" name="genres[]" value="27"><span class="text-quest">Horror</span><br>
-        <input type="checkbox" id="genre12" name="genres[]" value="10402"><span class="text-quest">Music</span><br>
-        <input type="checkbox" id="genre13" name="genres[]" value="9648"><span class="text-quest">Mystery</span><br>
-        <input type="checkbox" id="genre14" name="genres[]" value="10749"><span class="text-quest">Romance</span><br>
-        <input type="checkbox" id="genre15" name="genres[]" value="878"><span class="text-quest">Science
+      <label class="quest">What are your favourite type of movies?</label><br>
+      <input type="checkbox" id="genre1" name="genres[]" value="28"><span class="text-quest">Action</span><br>
+      <input type="checkbox" id="genre2" name="genres[]" value="12"><span class="text-quest">Adventure</span><br>
+      <input type="checkbox" id="genre3" name="genres[]" value="16"><span class="text-quest">Animation</span><br>
+      <input type="checkbox" id="genre4" name="genres[]" value="35"><span class="text-quest">Comedy</span><br>
+      <input type="checkbox" id="genre5" name="genres[]" value="80"><span class="text-quest">Crime</span><br>
+      <input type="checkbox" id="genre6" name="genres[]" value="99"><span class="text-quest">Documentary</span><br>
+      <input type="checkbox" id="genre7" name="genres[]" value="18"><span class="text-quest">Drama</span><br>
+      <input type="checkbox" id="genre8" name="genres[]" value="10751"><span class="text-quest">Family</span><br>
+      <input type="checkbox" id="genre9" name="genres[]" value="14"><span class="text-quest">Fantasy</span><br>
+      <input type="checkbox" id="genre10" name="genres[]" value="36"><span class="text-quest">History</span><br>
+      <input type="checkbox" id="genre11" name="genres[]" value="27"><span class="text-quest">Horror</span><br>
+      <input type="checkbox" id="genre12" name="genres[]" value="10402"><span class="text-quest">Music</span><br>
+      <input type="checkbox" id="genre13" name="genres[]" value="9648"><span class="text-quest">Mystery</span><br>
+      <input type="checkbox" id="genre14" name="genres[]" value="10749"><span class="text-quest">Romance</span><br>
+      <input type="checkbox" id="genre15" name="genres[]" value="878"><span class="text-quest">Science
           Fiction</span><br>
-        <input type="checkbox" id="genre16" name="genres[]" value="10770"><span class="text-quest">TV Movie</span><br>
-        <input type="checkbox" id="genre17" name="genres[]" value="53"><span class="text-quest">Thriller</span><br>
-        <input type="checkbox" id="genre18" name="genres[]" value="10752"><span class="text-quest">War</span><br>
-        <input type="checkbox" id="genre19" name="genres[]" value="37"><span class="text-quest">Western</span><br>
-        <br>
+      <input type="checkbox" id="genre16" name="genres[]" value="10770"><span class="text-quest">TV Movie</span><br>
+      <input type="checkbox" id="genre17" name="genres[]" value="53"><span class="text-quest">Thriller</span><br>
+      <input type="checkbox" id="genre18" name="genres[]" value="10752"><span class="text-quest">War</span><br>
+      <input type="checkbox" id="genre19" name="genres[]" value="37"><span class="text-quest">Western</span><br>
+      <br>
 
-        <label class="quest">How much free time do You have in a day?</label><br>
-        <select id="length" name="length" class="larger">
-          <option value="30" class="larger">00:30h</option>
-          <option value="60" class="larger">01:00h</option>
-          <option value="90" class="larger">01:30h</option>
-          <option value="120" class="larger">02:00h</option>
-          <option value="150" class="larger">02:30h</option>
-          <option value="180" class="larger">03:00h</option>
-          <option value="210" class="larger">03:30h</option>
-          <option value="240" class="larger">04:00h</option>
-        </select><br><br>
+      <label class="quest">How much free time do You have in a day?</label><br>
+      <select id="length" name="length" class="larger">
+        <option value="30" class="larger">00:30h</option>
+        <option value="60" class="larger">01:00h</option>
+        <option value="90" class="larger">01:30h</option>
+        <option value="120" class="larger">02:00h</option>
+        <option value="150" class="larger">02:30h</option>
+        <option value="180" class="larger">03:00h</option>
+        <option value="210" class="larger">03:30h</option>
+        <option value="240" class="larger">04:00h</option>
+      </select><br><br>
 
-        <label class="quest">What's Your favourite hobby?</label><br>
-        <select class="choice">
-          <option type="radio" name="fhobby" value="Nochoice">Select your choice</option>
-          <option type="radio" name="fhobby" value="Sing">Singing</option>
-          <option type="radio" name="fhobby" value="Dance">Dancing</option>
-          <option type="radio" name="fhobby" value="Eat">Eating</option>
-          <option type="radio" name="fhobby" value="Reading">Reading</option>
-          <option type="radio" name="fhobby" value="Sport">Doing Sport</option>
-          <option type="radio" name="fhobby" value="Music">Play Music</option>
-          <option type="radio" name="fhobby" value="Games">Play Games</option>
-          <option type="radio" name="fhobby" value="Videogames">Play Videogames</option>
-          <option type="radio" name="fhobby" value="Travel">Traveling</option>
-          <option type="radio" name="fhobby" value="Prog">Programming</option>
-          <option type="radio" name="fhobby" value="Study">Studing</option>
-        </select><br><br>
+      <label class="quest">What's Your favourite hobby?</label><br>
+      <select class="choice">
+        <option type="radio" name="fhobby" value="Nochoice">Select your choice</option>
+        <option type="radio" name="fhobby" value="Sing">Singing</option>
+        <option type="radio" name="fhobby" value="Dance">Dancing</option>
+        <option type="radio" name="fhobby" value="Eat">Eating</option>
+        <option type="radio" name="fhobby" value="Reading">Reading</option>
+        <option type="radio" name="fhobby" value="Sport">Doing Sport</option>
+        <option type="radio" name="fhobby" value="Music">Play Music</option>
+        <option type="radio" name="fhobby" value="Games">Play Games</option>
+        <option type="radio" name="fhobby" value="Videogames">Play Videogames</option>
+        <option type="radio" name="fhobby" value="Travel">Traveling</option>
+        <option type="radio" name="fhobby" value="Prog">Programming</option>
+        <option type="radio" name="fhobby" value="Study">Studing</option>
+      </select><br><br>
 
-        <label class="quest">Choose your preferred Language</label><br>
-        <select id="languages" name="languages">
-          <option value="af">Afrikaans</option>
-          <option value="sq">Albanian - shqip</option>
-          <option value="am">Amharic - አማርኛ</option>
-          <option value="ar">Arabic - العربية</option>
-          <option value="an">Aragonese - aragonés</option>
-          <option value="hy">Armenian - հայերեն</option>
-          <option value="ast">Asturian - asturianu</option>
-          <option value="az">Azerbaijani - azərbaycan dili</option>
-          <option value="eu">Basque - euskara</option>
-          <option value="be">Belarusian - беларуская</option>
-          <option value="bn">Bengali - বাংলা</option>
-          <option value="bs">Bosnian - bosanski</option>
-          <option value="br">Breton - brezhoneg</option>
-          <option value="bg">Bulgarian - български</option>
-          <option value="ca">Catalan - català</option>
-          <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
-          <option value="zh">Chinese - 中文</option>
-          <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
-          <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
-          <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
-          <option value="co">Corsican</option>
-          <option value="hr">Croatian - hrvatski</option>
-          <option value="cs">Czech - čeština</option>
-          <option value="da">Danish - dansk</option>
-          <option value="nl">Dutch - Nederlands</option>
-          <option value="en">English</option>
-          <option value="en-AU">English (Australia)</option>
-          <option value="en-CA">English (Canada)</option>
-          <option value="en-IN">English (India)</option>
-          <option value="en-NZ">English (New Zealand)</option>
-          <option value="en-ZA">English (South Africa)</option>
-          <option value="en-GB">English (United Kingdom)</option>
-          <option value="en-US">English (United States)</option>
-          <option value="eo">Esperanto - esperanto</option>
-          <option value="et">Estonian - eesti</option>
-          <option value="fo">Faroese - føroyskt</option>
-          <option value="fil">Filipino</option>
-          <option value="fi">Finnish - suomi</option>
-          <option value="fr">French - français</option>
-          <option value="fr-CA">French (Canada) - français (Canada)</option>
-          <option value="fr-FR">French (France) - français (France)</option>
-          <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
-          <option value="gl">Galician - galego</option>
-          <option value="ka">Georgian - ქართული</option>
-          <option value="de">German - Deutsch</option>
-          <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
-          <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
-          <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
-          <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
-          <option value="el">Greek - Ελληνικά</option>
-          <option value="gn">Guarani</option>
-          <option value="gu">Gujarati - ગુજરાતી</option>
-          <option value="ha">Hausa</option>
-          <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
-          <option value="he">Hebrew - עברית</option>
-          <option value="hi">Hindi - हिन्दी</option>
-          <option value="hu">Hungarian - magyar</option>
-          <option value="is">Icelandic - íslenska</option>
-          <option value="id">Indonesian - Indonesia</option>
-          <option value="ia">Interlingua</option>
-          <option value="ga">Irish - Gaeilge</option>
-          <option value="it">Italian - italiano</option>
-          <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
-          <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
-          <option value="ja">Japanese - 日本語</option>
-          <option value="kn">Kannada - ಕನ್ನಡ</option>
-          <option value="kk">Kazakh - қазақ тілі</option>
-          <option value="km">Khmer - ខ្មែរ</option>
-          <option value="ko">Korean - 한국어</option>
-          <option value="ku">Kurdish - Kurdî</option>
-          <option value="ky">Kyrgyz - кыргызча</option>
-          <option value="lo">Lao - ລາວ</option>
-          <option value="la">Latin</option>
-          <option value="lv">Latvian - latviešu</option>
-          <option value="ln">Lingala - lingála</option>
-          <option value="lt">Lithuanian - lietuvių</option>
-          <option value="mk">Macedonian - македонски</option>
-          <option value="ms">Malay - Bahasa Melayu</option>
-          <option value="ml">Malayalam - മലയാളം</option>
-          <option value="mt">Maltese - Malti</option>
-          <option value="mr">Marathi - मराठी</option>
-          <option value="mn">Mongolian - монгол</option>
-          <option value="ne">Nepali - नेपाली</option>
-          <option value="no">Norwegian - norsk</option>
-          <option value="nb">Norwegian Bokmål - norsk bokmål</option>
-          <option value="nn">Norwegian Nynorsk - nynorsk</option>
-          <option value="oc">Occitan</option>
-          <option value="or">Oriya - ଓଡ଼ିଆ</option>
-          <option value="om">Oromo - Oromoo</option>
-          <option value="ps">Pashto - پښتو</option>
-          <option value="fa">Persian - فارسی</option>
-          <option value="pl">Polish - polski</option>
-          <option value="pt">Portuguese - português</option>
-          <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
-          <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
-          <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
-          <option value="qu">Quechua</option>
-          <option value="ro">Romanian - română</option>
-          <option value="mo">Romanian (Moldova) - română (Moldova)</option>
-          <option value="rm">Romansh - rumantsch</option>
-          <option value="ru">Russian - русский</option>
-          <option value="gd">Scottish Gaelic</option>
-          <option value="sr">Serbian - српски</option>
-          <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
-          <option value="sn">Shona - chiShona</option>
-          <option value="sd">Sindhi</option>
-          <option value="si">Sinhala - සිංහල</option>
-          <option value="sk">Slovak - slovenčina</option>
-          <option value="sl">Slovenian - slovenščina</option>
-          <option value="so">Somali - Soomaali</option>
-          <option value="st">Southern Sotho</option>
-          <option value="es">Spanish - español</option>
-          <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
-          <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
-          <option value="es-MX">Spanish (Mexico) - español (México)</option>
-          <option value="es-ES">Spanish (Spain) - español (España)</option>
-          <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
-          <option value="su">Sundanese</option>
-          <option value="sw">Swahili - Kiswahili</option>
-          <option value="sv">Swedish - svenska</option>
-          <option value="tg">Tajik - тоҷикӣ</option>
-          <option value="ta">Tamil - தமிழ்</option>
-          <option value="tt">Tatar</option>
-          <option value="te">Telugu - తెలుగు</option>
-          <option value="th">Thai - ไทย</option>
-          <option value="ti">Tigrinya - ትግርኛ</option>
-          <option value="to">Tongan - lea fakatonga</option>
-          <option value="tr">Turkish - Türkçe</option>
-          <option value="tk">Turkmen</option>
-          <option value="tw">Twi</option>
-          <option value="uk">Ukrainian - українська</option>
-          <option value="ur">Urdu - اردو</option>
-          <option value="ug">Uyghur</option>
-          <option value="uz">Uzbek - o‘zbek</option>
-          <option value="vi">Vietnamese - Tiếng Việt</option>
-          <option value="wa">Walloon - wa</option>
-          <option value="cy">Welsh - Cymraeg</option>
-          <option value="fy">Western Frisian</option>
-          <option value="xh">Xhosa</option>
-          <option value="yi">Yiddish</option>
-          <option value="yo">Yoruba - Èdè Yorùbá</option>
-          <option value="zu">Zulu - isiZulu</option>
-        </select><br><br>
+      <label class="quest">Choose your preferred Language</label><br>
+      <select id="languages" name="languages">
+        <option value="af">Afrikaans</option>
+        <option value="sq">Albanian - shqip</option>
+        <option value="am">Amharic - አማርኛ</option>
+        <option value="ar">Arabic - العربية</option>
+        <option value="an">Aragonese - aragonés</option>
+        <option value="hy">Armenian - հայերեն</option>
+        <option value="ast">Asturian - asturianu</option>
+        <option value="az">Azerbaijani - azərbaycan dili</option>
+        <option value="eu">Basque - euskara</option>
+        <option value="be">Belarusian - беларуская</option>
+        <option value="bn">Bengali - বাংলা</option>
+        <option value="bs">Bosnian - bosanski</option>
+        <option value="br">Breton - brezhoneg</option>
+        <option value="bg">Bulgarian - български</option>
+        <option value="ca">Catalan - català</option>
+        <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+        <option value="zh">Chinese - 中文</option>
+        <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
+        <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
+        <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
+        <option value="co">Corsican</option>
+        <option value="hr">Croatian - hrvatski</option>
+        <option value="cs">Czech - čeština</option>
+        <option value="da">Danish - dansk</option>
+        <option value="nl">Dutch - Nederlands</option>
+        <option value="en">English</option>
+        <option value="en-AU">English (Australia)</option>
+        <option value="en-CA">English (Canada)</option>
+        <option value="en-IN">English (India)</option>
+        <option value="en-NZ">English (New Zealand)</option>
+        <option value="en-ZA">English (South Africa)</option>
+        <option value="en-GB">English (United Kingdom)</option>
+        <option value="en-US">English (United States)</option>
+        <option value="eo">Esperanto - esperanto</option>
+        <option value="et">Estonian - eesti</option>
+        <option value="fo">Faroese - føroyskt</option>
+        <option value="fil">Filipino</option>
+        <option value="fi">Finnish - suomi</option>
+        <option value="fr">French - français</option>
+        <option value="fr-CA">French (Canada) - français (Canada)</option>
+        <option value="fr-FR">French (France) - français (France)</option>
+        <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
+        <option value="gl">Galician - galego</option>
+        <option value="ka">Georgian - ქართული</option>
+        <option value="de">German - Deutsch</option>
+        <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
+        <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
+        <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
+        <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
+        <option value="el">Greek - Ελληνικά</option>
+        <option value="gn">Guarani</option>
+        <option value="gu">Gujarati - ગુજરાતી</option>
+        <option value="ha">Hausa</option>
+        <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
+        <option value="he">Hebrew - עברית</option>
+        <option value="hi">Hindi - हिन्दी</option>
+        <option value="hu">Hungarian - magyar</option>
+        <option value="is">Icelandic - íslenska</option>
+        <option value="id">Indonesian - Indonesia</option>
+        <option value="ia">Interlingua</option>
+        <option value="ga">Irish - Gaeilge</option>
+        <option value="it">Italian - italiano</option>
+        <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
+        <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
+        <option value="ja">Japanese - 日本語</option>
+        <option value="kn">Kannada - ಕನ್ನಡ</option>
+        <option value="kk">Kazakh - қазақ тілі</option>
+        <option value="km">Khmer - ខ្មែរ</option>
+        <option value="ko">Korean - 한국어</option>
+        <option value="ku">Kurdish - Kurdî</option>
+        <option value="ky">Kyrgyz - кыргызча</option>
+        <option value="lo">Lao - ລາວ</option>
+        <option value="la">Latin</option>
+        <option value="lv">Latvian - latviešu</option>
+        <option value="ln">Lingala - lingála</option>
+        <option value="lt">Lithuanian - lietuvių</option>
+        <option value="mk">Macedonian - македонски</option>
+        <option value="ms">Malay - Bahasa Melayu</option>
+        <option value="ml">Malayalam - മലയാളം</option>
+        <option value="mt">Maltese - Malti</option>
+        <option value="mr">Marathi - मराठी</option>
+        <option value="mn">Mongolian - монгол</option>
+        <option value="ne">Nepali - नेपाली</option>
+        <option value="no">Norwegian - norsk</option>
+        <option value="nb">Norwegian Bokmål - norsk bokmål</option>
+        <option value="nn">Norwegian Nynorsk - nynorsk</option>
+        <option value="oc">Occitan</option>
+        <option value="or">Oriya - ଓଡ଼ିଆ</option>
+        <option value="om">Oromo - Oromoo</option>
+        <option value="ps">Pashto - پښتو</option>
+        <option value="fa">Persian - فارسی</option>
+        <option value="pl">Polish - polski</option>
+        <option value="pt">Portuguese - português</option>
+        <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
+        <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
+        <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
+        <option value="qu">Quechua</option>
+        <option value="ro">Romanian - română</option>
+        <option value="mo">Romanian (Moldova) - română (Moldova)</option>
+        <option value="rm">Romansh - rumantsch</option>
+        <option value="ru">Russian - русский</option>
+        <option value="gd">Scottish Gaelic</option>
+        <option value="sr">Serbian - српски</option>
+        <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
+        <option value="sn">Shona - chiShona</option>
+        <option value="sd">Sindhi</option>
+        <option value="si">Sinhala - සිංහල</option>
+        <option value="sk">Slovak - slovenčina</option>
+        <option value="sl">Slovenian - slovenščina</option>
+        <option value="so">Somali - Soomaali</option>
+        <option value="st">Southern Sotho</option>
+        <option value="es">Spanish - español</option>
+        <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
+        <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
+        <option value="es-MX">Spanish (Mexico) - español (México)</option>
+        <option value="es-ES">Spanish (Spain) - español (España)</option>
+        <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
+        <option value="su">Sundanese</option>
+        <option value="sw">Swahili - Kiswahili</option>
+        <option value="sv">Swedish - svenska</option>
+        <option value="tg">Tajik - тоҷикӣ</option>
+        <option value="ta">Tamil - தமிழ்</option>
+        <option value="tt">Tatar</option>
+        <option value="te">Telugu - తెలుగు</option>
+        <option value="th">Thai - ไทย</option>
+        <option value="ti">Tigrinya - ትግርኛ</option>
+        <option value="to">Tongan - lea fakatonga</option>
+        <option value="tr">Turkish - Türkçe</option>
+        <option value="tk">Turkmen</option>
+        <option value="tw">Twi</option>
+        <option value="uk">Ukrainian - українська</option>
+        <option value="ur">Urdu - اردو</option>
+        <option value="ug">Uyghur</option>
+        <option value="uz">Uzbek - o‘zbek</option>
+        <option value="vi">Vietnamese - Tiếng Việt</option>
+        <option value="wa">Walloon - wa</option>
+        <option value="cy">Welsh - Cymraeg</option>
+        <option value="fy">Western Frisian</option>
+        <option value="xh">Xhosa</option>
+        <option value="yi">Yiddish</option>
+        <option value="yo">Yoruba - Èdè Yorùbá</option>
+        <option value="zu">Zulu - isiZulu</option>
+      </select><br><br>
 
-        <input type="submit" value="Confirm">
-      </div>
-    </form>
-  </section>
-
-  <form action="#" id="second-part-form">
-
+      <input type="submit" value="submit" class="sub-btm">
+    </div>
   </form>
+</section>
 
-  <!-- JavaScripts for include coding part in the HTML file -->
-  <script type="text/javascript" src="js/menu.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/loader.js"></script>
-  <script src="js/ejs.min.js"></script>
-  <script src="js/main.js"></script>
+<!--  <form action="#" id="second-part-form">-->
 
-  <!--Script for the interaction with Service Worker-->
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js")
-    }
+<!--</form> -->
 
-    fetch("http://localhost:3000/api/userDetails", {
-      credentials: "include",
-      headers: { 'Content-Type': 'application/json' },
-      method: "GET"
-    })
-      .then(response => {
-        if (response.redirected) {
-          window.location.href = response.url;
-        }
-      })
+<!-- JavaScripts for include coding part in the HTML file -->
+<script type="text/javascript" src="js/menu.js"></script>
+<script src="js/loader.js"></script>
+<!--<script src="js/ejs.min.js"></script>-->
+<script src="js/main.js"></script>
 
-  </script>
+<script>
+  function Remove(){
+    const element = document.getElementById("actor-id");
+    element.remove();
+  }
+</script>
+
+<!--Script for the interaction with Service Worker-->
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+  }
+
+</script>
 
 </body>
 
