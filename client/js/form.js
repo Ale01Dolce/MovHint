@@ -15,27 +15,27 @@ form.addEventListener("submit", (e) => {
     for(field of inputs) {
         console.log(field.value, field.type)
 
-        if(field.name == "genres[]" && field.checked) {
+        if(field.name === "genres[]" && field.checked) {
             data['genres'].push(field.value)
             continue
         }
 
-        if(field.name == "languages") {
+        if(field.name === "languages") {
             data[field.name] = field.value
             continue
         }
 
-        if(field.name == "length") {
+        if(field.name === "length") {
             data[field.name] = field.value
             continue
         }
 
-        if (field.type== "radio" || field.type == "checkbox") {
+        if (field.type === "radio" || field.type === "checkbox") {
             if (field.checked) { data[field.name] = field.value }
             continue
         }
 
-        if (field.type == "submit") { continue }
+        if (field.type === "submit") { continue }
 
         data['other'].push(field.value)
     }
