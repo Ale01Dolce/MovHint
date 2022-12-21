@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require('express')
 const mongoose = require("mongoose");
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 const app = express()
 const cors = require('cors');
 
