@@ -1,10 +1,11 @@
 /** @type {HTMLFormElement} */
+import { API_URL } from "./config"
 let form = document.getElementById("form-preferences")
 let movie_card_template = ""
 
 fetch("html/movie_card.ejs")
-        .then(r => r.text())
-        .then(text => movie_card_template = text)
+    .then(r => r.text())
+    .then(text => movie_card_template = text)
 
 
 form.addEventListener("submit", (e) => {
@@ -40,7 +41,7 @@ form.addEventListener("submit", (e) => {
         data['other'].push(field.value)
     }
     
-    fetch("http://localhost:3000/api/preferencesFormHandling", {
+    fetch(`${API_URL}/preferencesFormHandling`, {
         method: "POST",
         credentials: "include",
         headers: { 'Content-Type': 'application/json' },

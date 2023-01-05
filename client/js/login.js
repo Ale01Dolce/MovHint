@@ -1,7 +1,9 @@
+import { API_URL } from "./config";
+
 function manageLogin() {
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
-            fetch('http://localhost:3000/api/login/fb', {
+            fetch(`${API_URL}/login/fb`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
