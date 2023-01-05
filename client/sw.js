@@ -66,6 +66,13 @@ workbox.routing.registerRoute(
 )
 
 workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'style', 
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'styles',
+    })
+);
+
+workbox.routing.registerRoute(
     ({ request }) => request.destination === "image",
     new workbox.strategies.CacheFirst()
 )

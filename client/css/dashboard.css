@@ -1,0 +1,73 @@
+#movies-list {
+    display: flex;
+    justify-content: center;
+}
+
+.movie-item {
+    background-color: var(--main-color);
+    border-radius: 2rem;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90vw;
+    justify-content: space-between;
+    margin: 1rem;
+    padding-inline: 3rem;
+}
+
+/* .movie-item .details {
+    padding-inline-start: 3rem;
+} */
+
+.movie-item img {
+    height: inherit;
+    padding-right: 1rem;
+}
+
+.movie-item button {
+    height: 3rem;
+    padding: 1rem;
+}
+
+.movie-item .details {
+    display: flex;
+    text-align: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: inherit;
+}
+
+.movie-item .movie-metadata {
+    padding-inline: 1rem;
+}
+
+.movie-item .movie-metadata li {
+    display: inline;
+}
+
+.movie-item .movie-metadata ul {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-item .movie-metadata h3 {
+    text-align: start;
+    display: inline;
+}
+.movie-item .movie-metadata h3.providers-text {
+    padding: 1rem;
+}
+
+.movie-item .movie-metadata h1 {
+    text-align: start;
+}
+
+.movie-item .movie-metadata {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

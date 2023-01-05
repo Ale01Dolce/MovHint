@@ -8,7 +8,8 @@ router.use(async (req, res, next) => {
     // console.log(req.cookies)
 
     if(!req.cookies.token) {
-        res.redirect(`${process.env.FRONTEND_URL}/login.html`)
+        res.sendStatus(400)
+        // res.redirect(`${process.env.FRONTEND_URL}/login.html`)
         return next(new Error("no token header"))
     }
 
@@ -18,8 +19,8 @@ router.use(async (req, res, next) => {
         next()
         
     } else {
-        res.clearCookie("token")
-        res.redirect(`${process.env.FRONTEND_URL}/login.html`)
+        res.status(400).clearCookie("token").send()
+        // res.redirect(`${process.env.FRONTEND_URL}/login.html`)
         return next(new Error("Invalid Token Header"))
     }
 

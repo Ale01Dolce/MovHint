@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
   <!--Manifest-->
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="./css/dashboard.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="white"/>
 
@@ -29,8 +30,7 @@
   <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
   <ul class="navbar">
     <li><a href="index.html">Home</a></li>
-    <li id="login-navbar" style="display: none"><a href="login.html">Log In</a></li>
-    <li id="logout-navbar" style="display: none"><a href="logout.html">Log In</a></li>
+    <li><a id="login-navbar" href="login.html">Log In</a></li>
     <li><a href="dashboard.html">Dashboard</a></li>
   </ul>
 
@@ -48,6 +48,13 @@
     </div>
 </header>
 
+<div id="movies-list">
+  <ul id="movies-list-detailed">
+
+  </ul>
+</div>
+
+
 <section>
 <footer class="footer">
 
@@ -61,6 +68,8 @@
 
 <!-- JavaScripts for include coding part in the HTML file -->
 <script type="text/javascript" src="js/menu.js"></script>
+<script src="js/dashboard.js" type="module"></script>
+<script src="./js/ejs.min.js"></script>
 <script src="js/loader.js"></script>
 <script src="js/main.js"></script>
 

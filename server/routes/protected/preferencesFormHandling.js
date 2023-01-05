@@ -1,7 +1,6 @@
 const express = require('express')
 const User = require('../../models/userSchema')
 const router = express.Router()
-const axios = require("axios")
 const Popular = require('../../models/popularSchema')
 
 movie_genres = JSON.parse(`{"genres":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]}`)
@@ -27,10 +26,24 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
     if(!response) {
         res.statusCode(500).send()
     } else {
-        res.send(JSON.stringify(response))
+        for(elem of response) {
+            elem = elem.data
+            elem.genres = elem.genres.map((elem) => elem.name)
+            
+            const toAdd = {
+                title: elem.title,
+                runtime: elem.runtime,
+                genres: elem.genres,
+                providers: elem.providers,
+                release_date: elem.release_date,
+                poster_path: elem.poster_path,
+            }
+
+            console.log(toAdd)
+            await User.findOneAndUpdate({ sessionToken: req.cookies.token }, {$push: {recommendations: toAdd}})
+        }
+        res.sendStatus(200)
     }
-    
-    //res.redirect("http://localhost:5000/client/")
 })
 
 

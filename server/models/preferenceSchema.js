@@ -6,6 +6,6 @@ const PreferenceSchema = new Schema({
     languages: String,
     length: Number,
     genres: [String]
-})
+}, { _id: false })
 
 module.exports = PreferenceSchema

@@ -1,32 +1,26 @@
 /** @type {HTMLFormElement} */
-import { API_URL } from "./config"
-let form = document.getElementById("form-preferences")
-let movie_card_template = ""
+import { API_URL } from "./config.js"
 
-fetch("html/movie_card.ejs")
-    .then(r => r.text())
-    .then(text => movie_card_template = text)
+document.getElementById('form-preferences').addEventListener("submit", (event) => {
 
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    var data = {'genres': [], 'other': []}
+    event.preventDefault()
+    var data = { 'genres': [], 'other': [] }
     let inputs = document.querySelectorAll("input, select")
-    
-    for(field of inputs) {
-        console.log(field.value, field.type)
 
-        if(field.name === "genres[]" && field.checked) {
+    for (const field of inputs) {
+        console.log(field, field)
+
+        if (field.name === "genres[]" && field.checked) {
             data['genres'].push(field.value)
             continue
         }
 
-        if(field.name === "languages") {
+        if (field.name === "languages") {
             data[field.name] = field.value
             continue
         }
 
-        if(field.name === "length") {
+        if (field.name === "length") {
             data[field.name] = field.value
             continue
         }
@@ -40,25 +34,18 @@ form.addEventListener("submit", (e) => {
 
         data['other'].push(field.value)
     }
-    
+
     fetch(`${API_URL}/preferencesFormHandling`, {
         method: "POST",
         credentials: "include",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(json => {
-        /** @type {HTMLFormElement} */
-        let suggestionsForm = document.getElementById("second-part-form")
-        suggestionsForm.innerHTML = ''
-
-        console.log(json)
-        for (elem of json) {
-            const html = ejs.render(movie_card_template, {movie: elem.data})
-            suggestionsForm.innerHTML += html
-        }
-    })
-
-
+        .then(res => {
+            if (res.ok) {
+                window.location.href = 'dashboard.html'
+            } else {
+                window.location.href = 'index.html'
+            }
+        })
 })
