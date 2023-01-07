@@ -7,20 +7,19 @@ router.post("/logout", async (req, res, next) => {
     console.log("Logging out...")
 
     if (!req.cookies['token']) {
-        res.sendStatus(400)
+        res.sendStatus(200)
     }
 
     if (!await User.findOne({ sessionToken: req.cookies.token })) {
-        res.sendStatus(400)
+        res.sendStatus(200)
     }
 
     const currentUser = await User.findOne({ sessionToken: req.cookies.token })
-    currentUser.sessionToken + ''
+    currentUser.sessionToken = ''
 
     await currentUser.save()
 
-    res.clearCookie("token")
-    res.sendStatus(400)
+    res.clearCookie("token").status(200).send()
 })
 
 module.exports = router

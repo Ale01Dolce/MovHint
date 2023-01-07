@@ -5,7 +5,9 @@ fetch(`${API_URL}/logout`, {
     credentials: "include"
 
 }).then(response => {
-    if (response.redirected) {
-        window.location.href = response.url;
+    if (response.ok) {
+        window.location.href = "index.html";
+    } else {
+        window.location.href = "login.html";
     }
 })
