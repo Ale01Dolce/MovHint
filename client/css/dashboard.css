@@ -36,6 +36,25 @@
     padding: 1rem;
 }
 
+.movie-item .movie-providers {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.movie-item .movie-providers img {
+    height: 3rem;
+}
+
+.movie-item .providers-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.movie-item .providers-section h3 {
+    padding: 1rem;
+}
+
 .movie-item .details {
     display: flex;
     text-align: center;

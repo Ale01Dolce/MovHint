@@ -20,13 +20,14 @@
         </div>
     </div>
     <% if(movie.providers.length !== 0) { %>
-
-        <h3>Available here: </h3>
-        <ul>
-            <% movie.providers.forEach(function(provider){ %>
-                <li><img src="https://www.themoviedb.org/t/p/w154<%= provider.image_url %>" alt=""></img></li>
-            <% }); %>
-        </ul>
+        <div class="providers-section">
+            <h3>Available here: </h3>
+            <ul class="movie-providers">
+                <% movie.providers.forEach(function(provider){ %>
+                    <li><img src="https://www.themoviedb.org/t/p/w154<%= provider.logo_path %>" alt=""></img></li>
+                <% }); %>
+            </ul>
+        </div>
 
     <% } else { %>
 

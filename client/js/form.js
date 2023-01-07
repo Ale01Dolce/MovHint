@@ -15,12 +15,7 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
             continue
         }
 
-        if (field.name === "languages") {
-            data[field.name] = field.value
-            continue
-        }
-
-        if (field.name === "length") {
+        if (["languages", "length", "country"].includes(field.name)) {
             data[field.name] = field.value
             continue
         }

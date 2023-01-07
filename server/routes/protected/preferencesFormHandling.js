@@ -11,8 +11,14 @@ for(i of movie_genres["genres"]) {
     movie_genres_ids[i['id']] = i['name']
 }
 
-const popularEndpoint = `https://api.themoviedb.org/3/movie/popular`
-const detailsEndpoint = id => `https://api.themoviedb.org/3/movie/${id}`
+function getSafe(elem, language) {
+    try {
+        // console.log(elem["watch/providers"]['results'][language]['flatrate'], language)
+        return elem["watch/providers"]['results'][language]['flatrate']
+    } catch (e) {
+        return undefined;
+    }
+}
 
 router.post("/preferencesFormHandling", async (req, res, next) => {
     const userDetails = await User.findOne({sessionToken: req.cookies.token})
@@ -32,7 +38,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
         for(elem of response) {
             elem = elem.data
             elem.genres = elem.genres.map((elem) => elem.name)
-            
+            const providers = getSafe(elem, req.body.country.toUpperCase())
             const toAdd = {
                 title: elem.title,
                 runtime: elem.runtime,
@@ -40,6 +46,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
                 providers: elem.providers,
                 release_date: elem.release_date,
                 poster_path: elem.poster_path,
+                providers: providers
             }
 
             console.log(toAdd)
@@ -65,6 +72,6 @@ async function getPopular(filters) {
     }
 
     let movieList = await Popular.find(filterObject)
-    console.log(movieList)
+    // console.log(movieList) .sort(() => Math.random() - 0.5).slice(0, 20)
     return movieList.map((elem) => elem.toJSON()).sort(() => Math.random() - 0.5).slice(0, 20)
 }

@@ -5,7 +5,7 @@ const RecommendationSchema = new Schema({
     title: String,
     runtime: Number,
     genres: [String],
-    providers: [{image_url: String}],
+    providers: [{ logo_path: String, provider_id: Number, provider_name: String, display_priority: Number}],
     release_date: String,
     poster_path: String,
 
