@@ -26,6 +26,11 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
     if(!response) {
         res.statusCode(500).send()
     } else {
+
+        const user = await User.findOneAndUpdate({ sessionToken: req.cookies.token })
+        user.recommendations = []
+        await user.save()
+
         for(elem of response) {
             elem = elem.data
             elem.genres = elem.genres.map((elem) => elem.name)
