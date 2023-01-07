@@ -3,6 +3,9 @@ import { API_URL } from "./config.js"
 let movie_item_template = ""
 let userDetails = {}
 
+const capitalize = (str, lower = false) =>
+    (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase())
+
 fetch(`${API_URL}/userDetails`, {
     method: "GET",
     credentials: "include"
@@ -17,6 +20,8 @@ fetch(`${API_URL}/userDetails`, {
         document.getElementById("login-navbar").setAttribute('href', 'logout.html')
         response.json().then((json) => {
             userDetails = json
+            document.getElementById('welcome-text').innerText = `Welcome back, ${capitalize(userDetails.fullname, true)}!`
+
             fetch("html/movie_item.ejs")
                 .then(r => r.text())
                 .then((text) => {

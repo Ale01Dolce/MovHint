@@ -3,6 +3,12 @@
     justify-content: center;
 }
 
+#welcome-text {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
 .movie-item {
     background-color: var(--main-color);
     border-radius: 2rem;
