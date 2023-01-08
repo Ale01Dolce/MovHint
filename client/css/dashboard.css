@@ -32,8 +32,11 @@
 }
 
 .movie-item button {
-    height: 3rem;
+    /* height: 3rem; */
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .movie-item .movie-providers {

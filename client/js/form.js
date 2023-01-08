@@ -29,7 +29,7 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
 
         data['other'].push(field.value)
     }
-
+    document.getElementById('loading-spinner').style.display = 'block'
     fetch(`${API_URL}/preferencesFormHandling`, {
         method: "POST",
         credentials: "include",
@@ -37,6 +37,7 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
         body: JSON.stringify(data)
     })
         .then(res => {
+            document.getElementById('loading-spinner').style.display = 'none'
             if (res.ok) {
                 window.location.href = 'dashboard.html'
             } else {

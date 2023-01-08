@@ -36,6 +36,6 @@
     <% } %>
 
     <h3>Length: <%= movie.runtime %> Minutes</h3>
-    <button onclick="watched('<%= movie.MovieDBid %>')">Watched</button>
-    <button onclick="remove('<%= movie.MovieDBid %>')">Ignore Suggestion</button>
+    <button onclick="watched('<%= movie.MovieDBid %>')">Watched&nbsp;<div class="loader-dashboard watched"></div></button>
+    <button onclick="remove('<%= movie.MovieDBid %>')">Ignore Suggestion&nbsp;<div class="loader-dashboard ignore"></div></button>
 </div>
