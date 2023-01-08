@@ -26,10 +26,10 @@ fetch(`${API_URL}/userDetails`, {
                 .then(r => r.text())
                 .then((text) => {
                     movie_item_template = text
-                    document.getElementById('movies-list-detailed').innerHTML = ''
+                    document.getElementById('movies-list').innerHTML = ''
                     for (const elem of userDetails.recommendations) {
                         console.log(elem)
-                        document.getElementById('movies-list-detailed').innerHTML += ejs.render(movie_item_template, {movie: elem});
+                        document.getElementById('movies-list').innerHTML += ejs.render(movie_item_template, {movie: elem});
                     }
 
                 })
