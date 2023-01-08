@@ -73,6 +73,20 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'script', 
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'scripts',
+    })
+);
+
+workbox.routing.registerRoute(
+    /^.+\.json/, 
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'jsons',
+    })
+);
+
+workbox.routing.registerRoute(
     ({ request }) => request.destination === "image",
     new workbox.strategies.CacheFirst()
 )

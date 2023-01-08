@@ -96,3 +96,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.slide-remove {
+    animation: slide-right 1s cubic-bezier(0, 0.89, 0.77, 1.08);
+}
+
+@keyframes slide-right {
+    100% {
+        transform: translateX(150%);
+    }
+}

@@ -1,6 +1,6 @@
-<div class="movie-item">
+<div class="movie-item" id="<%= movie.MovieDBid %>">
     <div class="details">
-        <img src="https://www.themoviedb.org/t/p/w780<%= movie.poster_path %>" alt="">
+        <img src="https://www.themoviedb.org/t/p/w300<%= movie.poster_path %>" alt="">
         
         <div class="movie-metadata">
             <div class="titledesc">
@@ -36,6 +36,6 @@
     <% } %>
 
     <h3>Length: <%= movie.runtime %> Minutes</h3>
-    <button>Watched</button>
-    <button>Ignore Suggestion</button>
+    <button onclick="watched('<%= movie.MovieDBid %>')">Watched</button>
+    <button onclick="remove('<%= movie.MovieDBid %>')">Ignore Suggestion</button>
 </div>

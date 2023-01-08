@@ -8,6 +8,7 @@ async function initializeDB() {
     const detailsEndpoint = id => `https://api.themoviedb.org/3/movie/${id}`
     const appendToResponseString = 'append_to_response=watch%2Fproviders%2Ccredits%2Calternative_titles%2Cimages%2Ckeywords'
     let currentPage = 1
+    let count = 0
     let finalPage = currentPage + 20
 
     mongoose.connect(process.env.MONGODB_LOGIN);
@@ -35,6 +36,10 @@ async function initializeDB() {
         //console.log(response)
 
         for (elem of response.data.results) {
+
+            count++
+            console.log(`Elem N. ${count}`)
+            
             if(await Popular.findOne({'data.id': elem.id})) { continue }
             let details = await axios.get(detailsEndpoint(elem.id) + `?${appendToResponseString}`, {
                 params: {

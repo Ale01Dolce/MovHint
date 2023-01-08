@@ -108,3 +108,5 @@ package-lock.json
 
 # Vscode
 .vscode
+
+__pycache__

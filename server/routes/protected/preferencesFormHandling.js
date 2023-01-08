@@ -40,6 +40,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
             elem.genres = elem.genres.map((elem) => elem.name)
             const providers = getSafe(elem, req.body.country.toUpperCase())
             const toAdd = {
+                MovieDBid: elem.id,
                 title: elem.title,
                 runtime: elem.runtime,
                 genres: elem.genres,

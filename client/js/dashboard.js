@@ -35,7 +35,7 @@ fetch(`${API_URL}/userDetails`, {
                 })
         })
     }
-})
+}).catch(() => { window.location.href = 'index.html' })
 
 
 

@@ -8,6 +8,7 @@ const RecommendationSchema = new Schema({
     providers: [{ logo_path: String, provider_id: Number, provider_name: String, display_priority: Number}],
     release_date: String,
     poster_path: String,
+    MovieDBid: Number,
 
 }, { _id: false })
 
