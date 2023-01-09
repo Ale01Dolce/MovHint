@@ -127,7 +127,7 @@
 /* @keyframes controls the intermediate steps in a CSS animation sequence */
 @keyframes slide-right {
     100% {
-        transform: translateX(150%);
+        transform: translateX(100vw);
     }
 }
 
