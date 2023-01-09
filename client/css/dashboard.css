@@ -242,3 +242,16 @@
         transform: translateX(150%);
     }
 }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links svg {
+    margin: 1rem;
+}
+
+.social-links a {
+    color: white;
+}
