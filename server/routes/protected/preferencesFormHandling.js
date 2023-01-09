@@ -3,13 +3,6 @@ const User = require('../../models/userSchema')
 const router = express.Router()
 const Popular = require('../../models/popularSchema')
 
-movie_genres = JSON.parse(`{"genres":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]}`)
-
-movie_genres_ids = {}
-
-for(i of movie_genres["genres"]) {
-    movie_genres_ids[i['id']] = i['name']
-}
 
 function getSafe(elem, language) {
     try {
@@ -21,21 +14,21 @@ function getSafe(elem, language) {
 }
 
 router.post("/preferencesFormHandling", async (req, res, next) => {
-    const userDetails = await User.findOne({sessionToken: req.cookies.token})
+    var userDetails = await User.findOne({ sessionToken: req.cookies.token })
     // console.log("body ", req.body)
     userDetails.preferences = req.body
-    await userDetails.save()
+    userDetails = await userDetails.save()
 
-    const response = await getPopular(req.body)
+    const response = await getPopular(userDetails.preferences)
     // console.log(response)
 
-    if(!response) {
+    if (!response) {
         res.statusCode(500).send()
     } else {
 
-        await User.findOneAndUpdate({ sessionToken: req.cookies.token }, {recommendations: []})
+        await User.findOneAndUpdate({ sessionToken: req.cookies.token }, { recommendations: [] })
 
-        for(elem of response) {
+        for (elem of response) {
             elem = elem.data
             elem.genres = elem.genres.map((elem) => elem.name)
             const providers = getSafe(elem, req.body.country.toUpperCase())
@@ -51,8 +44,8 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
                 providers: providers
             }
 
-            console.log(toAdd)
-            await User.findOneAndUpdate({ sessionToken: req.cookies.token }, {$push: {recommendations: toAdd}})
+            // console.log(toAdd)
+            await User.findOneAndUpdate({ sessionToken: req.cookies.token }, { $push: { recommendations: toAdd } })
         }
         res.sendStatus(200)
     }
@@ -61,19 +54,31 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
 
 module.exports = router
 
-async function getPopular(filters) {
+async function getPopular(preferences) {
 
-    filters.genres = filters.genres.map(Number)
-    filters.length = Number(filters.length)
-    filters.adult = Boolean(filters.adult)
+    const oldCutoff = '2005-01-01'
+    var filterObject = { "data.genre_ids": { $in: preferences.genres }, "data.runtime": { $lte: preferences.length } }
 
-    if(filters.adult) {
-        var filterObject = {"data.genre_ids": { $in: filters.genres }, "data.runtime": {$lte: filters.length}}
+    if (!preferences.adult) {
+        filterObject = { "data.adult": preferences.adult, ...filterObject }
+    }
+
+    if (preferences.isOld) {
+        filterObject = { "data.release_date": { $lte: oldCutoff }, ...filterObject }
     } else {
-        var filterObject = {"data.adult": filters.adult, "data.genre_ids": { $in: filters.genres }, "data.runtime": {$lte: filters.length}}
+        filterObject = { "data.release_date": { $gte: oldCutoff }, ...filterObject }
+    }
+
+    if (preferences.isPopular) {
+        filterObject = { 'data.vote_average': { $gte: 7.00 }, ...filterObject }
+    }
+
+    if(preferences.easilyWatchable) {
+        const providerString = `data.watch/providers.results.${preferences.country}.flatrate`
+        filterObject = { [providerString]: { $exists: true }, ...filterObject }
     }
 
     let movieList = await Popular.find(filterObject)
-    // console.log(movieList) .sort(() => Math.random() - 0.5).slice(0, 20)
+    console.log(filterObject, preferences)
     return movieList.map((elem) => elem.toJSON()).sort(() => Math.random() - 0.5).slice(0, 20)
 }

@@ -2,6 +2,7 @@ const axios = require('axios')
 const express = require('express')
 const User = require('../../models/userSchema')
 const router = express.Router()
+const oldCutoff = new Date('2005-01-01')
 
 function getSafe(elem, language) {
     try {
@@ -20,6 +21,7 @@ router.delete("/recommendations/:id", async (req, res, next) => {
     console.log(toRemove, Number(req.params.id))
     if(toRemove === -1) { res.status(200).send('Already Missing'); return }
 
+    userDetails.ignoredMovies.push(req.params.id)
     userDetails.recommendations.splice(toRemove, 1)
     await userDetails.save()
     res.sendStatus(200)
@@ -33,6 +35,7 @@ router.post("/recommendations", async (req, res, next) => {
     console.log(toUpdate, req.body, `${process.env.RECOMMENDATIONS_URL}/recommendations`)
     if (toUpdate === -1) { res.status(200).send('Already Missing'); return }
     userDetails.watchedMovies.push(req.body.id)
+    const preferences = userDetails.preferences
 
     try {
         var response = await axios.get(`${process.env.RECOMMENDATIONS_URL}/recommendations`, {
@@ -52,6 +55,18 @@ router.post("/recommendations", async (req, res, next) => {
         }
     }
 
+    response.data.filter(elem => {
+        elem.release_date = new Date(elem.release_date)
+        return (
+            elem.adult === preferences.adult &&
+            elem.runtime <= preferences.length &&
+            elem.genres.some(genre => preferences.includes(genre.id)) &&
+            (preferences.isPopular ? elem.vote_average > 7.00 : true) &&
+            (preferences.easilyWatchable ? elem["watch/providers"]['results'][preferences.country]['flatrate'].length !== 0 : true) &&
+            (preferences.isOld ? elem.release_date.getTime() < oldCutoff.getTime() : elem.release_date.getTime() >= oldCutoff.getTime())
+        )
+    })
+
     for (elem of response.data) {
         console.log(elem.title)
         // If it's already present in the recommendations, continue
@@ -60,7 +75,7 @@ router.post("/recommendations", async (req, res, next) => {
         if (userDetails.watchedMovies.find((alreadyWatchedID) => alreadyWatchedID === elem.id)) { continue }
         
         elem.genres = elem.genres.map((elem) => elem.name)
-        const providers = getSafe(elem, userDetails.preferences.country.toUpperCase())
+        const providers = getSafe(elem, preferences.country.toUpperCase())
         const toAdd = {
             MovieDBid: elem.id,
             title: elem.title,

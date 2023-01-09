@@ -9,6 +9,7 @@ const userSchema = new Schema({
     nickname: String,
     sessionToken: String,
     watchedMovies: [Number],
+    ignoredMovies: [Number],
     preferences: PreferenceSchema,
     recommendations: [RecommendationSchema],
 })
