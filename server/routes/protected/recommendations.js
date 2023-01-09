@@ -32,7 +32,7 @@ router.post("/recommendations", async (req, res, next) => {
     const toUpdate = userDetails.recommendations.findIndex((elem) => elem.MovieDBid === Number(req.body.id))
     console.log(toUpdate, req.body, `${process.env.RECOMMENDATIONS_URL}/recommendations`)
     if (toUpdate === -1) { res.status(200).send('Already Missing'); return }
-    userDetails.watchedMovies.push(elem.MovieDBid)
+    userDetails.watchedMovies.push(req.body.id)
 
     try {
         var response = await axios.get(`${process.env.RECOMMENDATIONS_URL}/recommendations`, {

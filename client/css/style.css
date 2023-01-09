@@ -342,12 +342,14 @@ header{
     background:  url("../image/back-info-1.png");
     background-position: center;
     box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
+    background-size: 100%;
 }
 
 .left-two{
     background: url("../image/back-info-3.png");
     background-position: center;
     box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
+    background-size: 100%;
 }
 
 .left-one h2, .left-two h2{
@@ -371,6 +373,7 @@ header{
     background: url("../image/back-info-2.png");
     background-position: center;
     box-shadow: 0 -10px 13px rgba(34, 35, 39, 0.21);
+    background-size: 100%;
 }
 
 .right h2{
@@ -511,8 +514,8 @@ header{
 .dashboard{
     color: white;
     position: absolute;
-    left: 60%;
-    bottom: 70%;
+    left: 30%;
+    bottom: 62%;
     padding: 40px;
 }
 
@@ -530,6 +533,7 @@ header{
 
 .dashboard p{
     color: white;
+    text-align: center;
 }
 
 @media (max-width: 1752px) {
@@ -537,12 +541,18 @@ header{
         left: 35%;
         bottom: 60%;
     }
+    .dashboard p{
+        text-align: center;
+    }
 }
 
 @media (max-width: 900px) {
     .dashboard{
         left: 3%;
         bottom: 60%;
+    }
+    .dashboard p{
+        text-align: center;
     }
 }
 
@@ -555,6 +565,9 @@ header{
 
     .dashboard h1{
         font-size: clamp(30px, 10vw, 120px);
+    }
+    .dashboard p{
+        text-align: center;
     }
 
 }
@@ -849,4 +862,13 @@ input[type="checkbox"i]{
     100% {
         transform: rotate(360deg);
     }
+}
+
+#do-form button{
+    width: 300px;
+}
+
+#do-form {
+    display: flex;
+    justify-content: center;
 }

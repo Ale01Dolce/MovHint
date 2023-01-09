@@ -10,7 +10,7 @@ const User = require("../../models/userSchema")
 async function verify(token) {
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+        audience: process.env.GOOGLE_CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
     });
     const payload = ticket.getPayload();
     return payload

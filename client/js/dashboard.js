@@ -12,11 +12,11 @@ fetch(`${API_URL}/userDetails`, {
 }).then(response => {
     console.log(response.status)
     if (!response.ok) {
-        document.getElementById("login-navbar").textContent = "Log in"
+        document.getElementById("login-navbar").textContent = "Log In"
         document.getElementById("login-navbar").setAttribute('href', 'login.html')
         window.location.href = 'index.html'
     } else {
-        document.getElementById("login-navbar").textContent = "Logout"
+        document.getElementById("login-navbar").textContent = "Log Out"
         document.getElementById("login-navbar").setAttribute('href', 'logout.html')
         response.json().then((json) => {
             userDetails = json
