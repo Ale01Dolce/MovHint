@@ -1,14 +1,16 @@
+/*css used for describe tag attributes, like position, color, background containers color, padding, and responsive*/
 html{
     scroll-behavior: smooth;
 }
 
+/* using * for describe generals attributes */
 *{
-    padding: 0;
-    margin: 0;
+    padding: 0; /* define space around an element's content, inside defined borders. */
+    margin: 0; /* define space around elements, outside defined borders.*/
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: 'poppins', sans-serif; /* define font style, it is imported */
     text-decoration: none;
-    list-style: none;
+    list-style: none; /* we dont use decoration of the list like dots, square, etc. */
 }
 
 :root{
@@ -26,6 +28,7 @@ body{
 }
 
 .loader{
+    /* those attributes define position of the element*/
     position: fixed;
     top: 0;
     left: 0;
@@ -34,10 +37,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#7695ff,#be35ff);
-    transition: opacity 0.75s, visibility 0.75s;
+    background: linear-gradient(#7695ff,#be35ff); /* define a color gradient for the background */
+    transition: opacity 0.75s, visibility 0.75s; /* this property allows you to change property values smoothly with a duration. */
 }
 
+/* js part define when this part need to be active */
 .loader--hidden{
     opacity: 0;
     visibility: hidden;
@@ -53,6 +57,7 @@ body{
     animation: loading 0.75s ease infinite;
 }
 
+/* @keyframes controls the intermediate steps in a CSS animation sequence */
 @keyframes loading {
     from{ transform: rotate(0turn) }
     to { transform: rotate(1turn) }
@@ -136,6 +141,8 @@ nav{
     display: none;
 }
 
+/* @media used for describe webapp appearance with different screen width */
+
 @media (max-width:1280px){
     nav{
         padding: 14px 2%;
@@ -197,7 +204,7 @@ nav{
 header{
     position: relative;
     top: 5rem;
-    overflow: hidden;
+    overflow: hidden; /* this property controls what happens to content that is too big to fit into an area. */
     height: 70vh;
     margin-bottom: 5rem;
 }
@@ -220,7 +227,7 @@ header{
     margin-left: -6px;
     color: transparent;
     -webkit-text-stroke: 0.5px #fff;
-    background: url('../image/back.png');
+    background: url('../image/back.png'); /* add image in the background using url("define path") */
     -webkit-background-clip: text;
     background-position: 0 0;
     animation: back 20s linear infinite;
@@ -233,6 +240,7 @@ header{
     }
 }
 
+/* we can use more tag for describe attributes of a specific tag like "h3" contained in another tag */
 .text-box h3{
     font-size: 30px;
     font-weight: 500;
@@ -255,6 +263,7 @@ header{
     align-items: center;
 }
 
+/* a:hover is used for describe elements behavior when indicator pass over the tag */
 .text-box a:hover{
     color: white;
     background-color: deepskyblue;
@@ -834,7 +843,7 @@ input[type="checkbox"i]{
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* this property lets you rotate, scale, skew, or translate an element. */
     }
 
     100% {

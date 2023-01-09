@@ -11,119 +11,6 @@
      color: var(--text-color);
  }
 
-/*
-#movies-list {
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.movie-item {
-    background-color: var(--main-color);
-    border-radius: 2rem;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 90vw;
-    justify-content: space-between;
-    margin: 1rem;
-    padding-inline: 3rem;
-}
-
-/* .movie-item .details {
-    padding-inline-start: 3rem;
-} */
-
-/*
-
-.movie-item img {
-    height: inherit;
-    border-radius: 10px;
-}
-
-.movie-item button {
-    height: 3rem; 
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.movie-item .movie-providers {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.movie-item .movie-providers img {
-    height: 3rem;
-}
-
-.movie-item .providers-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.movie-item .providers-section h3 {
-    padding: 1rem;
-}
-
-.movie-item .details {
-    display: flex;
-    text-align: center;
-    align-content: center;
-    flex-wrap: wrap;
-    height: inherit;
-}
-
-.movie-item .movie-metadata {
-    padding-inline: 1rem;
-    font-size: clamp(0.4rem, 1vw, 1rem);;
-}
-
-.movie-item .movie-metadata li {
-    display: inline;
-}
-
-.movie-item .movie-metadata ul {
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-}
-
-.movie-item .movie-metadata h3 {
-    text-align: start;
-    display: inline;
-}
-.movie-item .movie-metadata h3.providers-text {
-    padding: 1rem;
-}
-
-.movie-item .movie-metadata h1 {
-    text-align: start;
-}
-
-.movie-item .movie-metadata {
-    display: flex;
-    flex-direction: column;
-    height: inherit;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.slide-remove {
-    animation: slide-right 1s cubic-bezier(0, 0.89, 0.77, 1.08);
-}
-
-@keyframes slide-right {
-    100% {
-        transform: translateX(150%);
-    }
-}
-*/
-
 .container-das{
     max-width: 540px;
     margin-inline: auto;
@@ -237,6 +124,7 @@
     animation: slide-right 1s cubic-bezier(0, 0.89, 0.77, 1.08);
 }
 
+/* @keyframes controls the intermediate steps in a CSS animation sequence */
 @keyframes slide-right {
     100% {
         transform: translateX(150%);
