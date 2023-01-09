@@ -43,7 +43,7 @@ router.post("/login/google", async (req, res, next) => {
     //Send the access token to the user
     res.cookie("token", userToken, {maxAge: 1000 * 60 * 60 * 24 * 30})
 
-    res.redirect(`${process.env.FRONTEND_URL}/index.html`)
+    res.redirect(`${process.env.FRONTEND_URL}/dashboard.html`)
 
 
 })

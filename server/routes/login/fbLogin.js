@@ -39,7 +39,7 @@ router.post("/login/fb", async (req, res, next) => {
     //Send the access token to the user
     res.cookie("token", userToken, {maxAge: 1000 * 60 * 60 * 24 * 30})
 
-    res.redirect(`${process.env.FRONTEND_URL}/login.html`)
+    res.redirect(`${process.env.FRONTEND_URL}/dashboard.html`)
 })
 
 module.exports = router
