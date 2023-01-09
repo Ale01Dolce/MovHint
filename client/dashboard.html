@@ -27,6 +27,7 @@
 
 <div class="loader"></div>
 
+<!-- Navbar -->
 <nav>
   <a href="index.html" class="logo"><img class="logo-img" src="image/movhint%20logo.png"><span>MovHint</span></a>
   <ul class="navbar">
@@ -50,6 +51,7 @@
 
 </header>
 
+<!-- Re-fill questionary button -->
 <div id="do-form" class="row">
   <button class="sub-btm">
     <a id="getstarted_button" href="questionary.html">DO QUESTIONARY</a>
@@ -57,11 +59,12 @@
 </div>
 <h1 id="welcome-text"></h1>
 
+<!-- Container for the movie list, using movie_item.ejs shows the various recommended movies -->
 <div class="container-das">
   <div id="movies-list"></div>
 </div>
 
-
+<!-- Footer -->
 <section>
 <footer class="footer">
 
@@ -87,6 +90,10 @@
     navigator.serviceWorker.register("sw.js")
   }
 
+  //Watched Function
+  /*Activate the spinners, temporarily deactivate the Watched button and send a request
+  to the server that you have watched the movie*/
+  //When the response arrives it unpins the spinners and removes the element from the html
   function watched(movieid) {
 
     let movieItem = document.getElementById(movieid)
@@ -136,6 +143,9 @@
     })
   }
 
+  //Ignore Function
+  //Activate the spinners, temporarily deactivate the Ignore button and send a request to the server to remove the movie
+  //When the response arrives it unpins the spinners and removes the element from the html
   function remove(movieid) {
         let movieItem = document.getElementById(movieid)
 

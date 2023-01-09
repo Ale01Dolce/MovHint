@@ -56,7 +56,6 @@ router.post("/recommendations", async (req, res, next) => {
     }
     var responseData = [...response.data]
     responseData.filter(elem => {
-        console.log(elem)
         elem.release_date = new Date(elem.release_date)
         const providerLength = elem["watch/providers"]['results'][preferences.country]?.flatrate?.length
         return (
