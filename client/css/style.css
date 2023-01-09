@@ -508,7 +508,11 @@ header{
 /*Dashboard*/
 
 .dashboard-b{
-    background: linear-gradient( 135deg, #27004d, #314b7e);
+    min-height: 50vh;
+    background: linear-gradient(rgba(0,0,0,0.6),transparent), url("../image/sfondo_dash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .dashboard{
@@ -538,9 +542,14 @@ header{
 
 @media (max-width: 1752px) {
     .dashboard{
-        left: 35%;
+        left: 22%;
         bottom: 60%;
     }
+
+    .dashboard h1{
+        line-height: 100px;
+    }
+
     .dashboard p{
         text-align: center;
     }
@@ -548,26 +557,49 @@ header{
 
 @media (max-width: 900px) {
     .dashboard{
-        left: 3%;
+        left: 15%;
         bottom: 60%;
+        padding: 20px;
     }
+
+    .dashboard h1{
+        padding-left: 14%;
+    }
+
     .dashboard p{
         text-align: center;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard h1{
+        font-size: clamp(10px, 10vw, 120px);
+        line-height: 40px;
+        padding-left: 8%;
+        left: 13%;
+    }
+
+    .dashboard p{
+        padding-top: 15px;
     }
 }
 
 @media (max-width: 400px) {
     .dashboard{
-        left: 1%;
         bottom: 57%;
-        padding: 40px;
+        padding: 20px;
     }
 
     .dashboard h1{
-        font-size: clamp(30px, 10vw, 120px);
+        font-size: clamp(10px, 10vw, 120px);
+        line-height: 40px;
+        padding-left: 12%;
     }
     .dashboard p{
+        font-size: 13px;
         text-align: center;
+        padding-bottom: 27px;
     }
 
 }
