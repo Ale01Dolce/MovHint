@@ -3,6 +3,7 @@ import { API_URL } from "./config.js"
 
 document.getElementById('form-preferences').addEventListener("submit", (event) => {
 
+    //Takes all the form inputs, collects the various preferences and sends them to the backend server
     event.preventDefault()
     var data = { 'genres': [], 'other': [] }
     let inputs = document.querySelectorAll("input, select")
@@ -36,7 +37,7 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-        .then(res => {
+        .then(res => {  //After filling out the form
             document.getElementById('loading-spinner').style.display = 'none'
             if (res.ok) {
                 window.location.href = 'dashboard.html'

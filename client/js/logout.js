@@ -1,4 +1,6 @@
 import { API_URL } from "./config.js";
+
+//Changing href based on user access
 fetch(`${API_URL}/logout`, {
 
     method: "POST",
