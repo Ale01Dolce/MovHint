@@ -509,7 +509,7 @@ header{
 
 .dashboard-b{
     min-height: 50vh;
-    background: linear-gradient(rgba(0,0,0,0.6),transparent), url("../image/sfondo_dash.png");
+    background: linear-gradient(rgba(0,0,0,0.6),transparent), url("../image/background_dash.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
