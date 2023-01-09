@@ -784,6 +784,17 @@ input[type="checkbox"i]{
     align-items: center;
 }
 
+.sub-btm {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 #content-1 .sub-btm:hover{
     color: white;
     background-color: deepskyblue;
@@ -793,6 +804,12 @@ input[type="checkbox"i]{
     border: 2px solid deepskyblue;
     display: flex;
     align-items: center;
+}
+
+.sub-btm:hover {
+    color: white;
+    background-color: deepskyblue;
+    border: 2px solid deepskyblue;
 }
 
 .loader-secondary {

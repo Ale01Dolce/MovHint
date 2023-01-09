@@ -9,6 +9,7 @@ const RecommendationSchema = new Schema({
     release_date: String,
     poster_path: String,
     MovieDBid: Number,
+    overview: String,
 
 }, { _id: false })
 

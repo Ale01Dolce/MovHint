@@ -42,6 +42,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
             const toAdd = {
                 MovieDBid: elem.id,
                 title: elem.title,
+                overview: elem.overview,
                 runtime: elem.runtime,
                 genres: elem.genres,
                 providers: elem.providers,

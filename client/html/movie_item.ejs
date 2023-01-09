@@ -1,75 +1,41 @@
-<!--
-<div class="movie-item" id="<%= movie.MovieDBid %>">
-    <div class="details">
-        <img src="https://www.themoviedb.org/t/p/w300<%= movie.poster_path %>" alt="">
+<div class="movie-card" id="<%= movie.MovieDBid %>">
+    <figure class="card-banner">
+        <img src="https://www.themoviedb.org/t/p/w780<%= movie.poster_path %>" alt="">
+    </figure>
 
-        <div class="movie-metadata">
-            <div class="titledesc">
-                <h1>
-                    <%= movie.title %>
-                </h1>
+    <div class="title-wrapper">
+        <h3 class="card-title">
+            <%= movie.title %>
+        </h3>
 
-                <ul>
-                    <% movie.genres.forEach(function(genre){ %>
-                        <li>
-                            <%= genre %>
-                        </li>
-                        <% }); %>
-                </ul>
-            </div>
-            <h3><%= movie.release_date %></h3>
-        </div>
+        <time>
+            <%= movie.release_date %>
+        </time>
     </div>
-    <% if(movie.providers.length !== 0) { %>
+    <p>
+        <%= movie.overview %>
+    </p>
+    <% if(movie.providers.length !==0) { %>
         <div class="providers-section">
             <h3>Available here: </h3>
             <ul class="movie-providers">
                 <% movie.providers.forEach(function(provider){ %>
                     <li><img src="https://www.themoviedb.org/t/p/w154<%= provider.logo_path %>" alt=""></img></li>
-                <% }); %>
+                    <% }); %>
             </ul>
         </div>
 
+
     <% } else { %>
-
         <h3 class="providers-text">No Providers Available!</h3>
-
     <% } %>
 
-    <h3>Length: <%= movie.runtime %> Minutes</h3>
-    <button onclick="watched('<%= movie.MovieDBid %>')">Watched&nbsp;<div class="loader-dashboard watched"></div></button>
-    <button onclick="remove('<%= movie.MovieDBid %>')">Ignore Suggestion&nbsp;<div class="loader-dashboard ignore"></div></button>
-</div>
--->
-<li>
-    <div class="movie-card">
-        <figure class="card-banner">
-            <img src="https://www.themoviedb.org/t/p/w780<%= movie.poster_path %>" alt="">
-        </figure>
-
-        <div class="title-wrapper">
-            <h3 class="card-title">
-                <%= movie.title %>
-            </h3>
-
-            <time>
-                <%= movie.release_date %>
-            </time>
-        </div>
-
-        <% if(movie.providers.length !==0) { %>
-            <div class="providers-section">
-                <h3>Available here: </h3>
-                <ul class="movie-providers">
-                    <% movie.providers.forEach(function(provider){ %>
-                        <li><img src="https://www.themoviedb.org/t/p/w154<%= provider.logo_path %>" alt=""></img></li>
-                        <% }); %>
-                </ul>
-            </div>
-
-
-            <% } else { %>
-                <h3 class="providers-text">No Providers Available!</h3>
-                <% } %>
+    <h3 class="length-text">Length: <%= movie.runtime %> Minutes</h3>
+    <div class="card-buttons">
+        <button class="sub-btm" onclick="watched('<%= movie.MovieDBid %>')">Watched&nbsp;<div
+                class="loader-dashboard watched"></div></button>
+        <button class="sub-btm" onclick="remove('<%= movie.MovieDBid %>')">Ignore&nbsp;<div
+                class="loader-dashboard ignore"></div>
+        </button>
     </div>
-</li>
+</div>
