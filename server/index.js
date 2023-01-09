@@ -8,7 +8,7 @@ const cors = require('cors');
 
 // Definition of the Cross-Origin Resource Sharing rules, to allow the frontend to access the backend
 const corsOption = {
-  origin: [process.env.FRONTEND_URL],
+  origin: [new URL(process.env.FRONTEND_URL).origin],
   credentials: true,
 };
 
