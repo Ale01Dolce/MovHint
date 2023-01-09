@@ -1,14 +1,15 @@
 import { API_URL } from "./config.js";
 
+//Changing text and href based on user access
 fetch(`${API_URL}/userDetails`, {
     method: "GET",
     credentials: "include"
 }).then(response => {
     console.log(response.status)
-    if (!response.ok) {
+    if (!response.ok) { //If user is NOT logged in
         document.getElementById("login-navbar").textContent = "Log In"
         document.getElementById("login-navbar").setAttribute('href', 'login.html')
-    } else {
+    } else {    //If user is logged in
         document.getElementById("login-navbar").textContent = "Log Out"
         document.getElementById("login-navbar").setAttribute('href', 'logout.html')
         window.location.href = 'dashboard.html'

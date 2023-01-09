@@ -6,16 +6,18 @@ let userDetails = {}
 const capitalize = (str, lower = false) =>
     (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase())
 
+//Changing text and buttons based on user access, add movies if user is logged in
 fetch(`${API_URL}/userDetails`, {
     method: "GET",
     credentials: "include"
 }).then(response => {
     console.log(response.status)
+    //If user is NOT logged in
     if (!response.ok) {
         document.getElementById("login-navbar").textContent = "Log In"
         document.getElementById("login-navbar").setAttribute('href', 'login.html')
         window.location.href = 'login.html'
-    } else {
+    } else {    //If user is logged in
         document.getElementById("login-navbar").textContent = "Log Out"
         document.getElementById("login-navbar").setAttribute('href', 'logout.html')
         response.json().then((json) => {
