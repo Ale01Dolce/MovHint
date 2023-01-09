@@ -182,7 +182,7 @@ nav{
     }
 
     .navbar a:hover{
-        color: blueviolet;
+        color: #461573;
         transform: translateY(5px);
     }
 
@@ -589,6 +589,7 @@ header{
     .dashboard{
         bottom: 57%;
         padding: 20px;
+        margin-bottom: 6%;
     }
 
     .dashboard h1{
