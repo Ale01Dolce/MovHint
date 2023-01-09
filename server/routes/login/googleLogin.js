@@ -17,15 +17,19 @@ async function verify(token) {
 }
 
 router.post("/login/google", async (req, res, next) => {
-
+    // Verify that the JWT is actually coming from Google
     const userData = await verify(req.body.credential)
     
+    // If no user with the corresponding email is found, create a new one
     if (!await User.findOne({ email: userData['email'] })) {
         const user = new User({ email: userData['email'], fullname: userData['name'] })
         await user.save()
     }
 
+    // Find the user with the corresponding email
     const currentUser = await User.findOne({ email: userData['email'] })
+
+    //Create and sign an access token to send to the user as a cookie
     const userToken = jwt.sign(
         {email: currentUser.email},
         process.env.PRIVATE_KEY,
@@ -36,6 +40,7 @@ router.post("/login/google", async (req, res, next) => {
 
     await currentUser.save()
 
+    //Send the access token to the user
     res.cookie("token", userToken, {maxAge: 1000 * 60 * 60 * 24 * 30})
 
     res.redirect(`${process.env.FRONTEND_URL}/index.html`)
