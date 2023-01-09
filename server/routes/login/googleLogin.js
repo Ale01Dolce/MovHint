@@ -41,7 +41,7 @@ router.post("/login/google", async (req, res, next) => {
     await currentUser.save()
 
     //Send the access token to the user
-    res.cookie("token", userToken, { maxAge: 1000 * 60 * 60 * 24 * 30, domain: new URL(process.env.FRONTEND_URL).hostname, httpOnly: true, secure: true, sameSite: 'none' })
+    res.cookie("token", userToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true, secure: true, sameSite: 'none' })
 
     res.redirect(`${process.env.FRONTEND_URL}/index.html`)
 
