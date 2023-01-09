@@ -54,20 +54,22 @@ router.post("/recommendations", async (req, res, next) => {
             return next(new Error(error))
         }
     }
-
-    response.data.filter(elem => {
+    var responseData = [...response.data]
+    responseData.filter(elem => {
+        console.log(elem)
         elem.release_date = new Date(elem.release_date)
+        const providerLength = elem["watch/providers"]['results'][preferences.country]?.flatrate?.length
         return (
             elem.adult === preferences.adult &&
             elem.runtime <= preferences.length &&
-            elem.genres.some(genre => preferences.includes(genre.id)) &&
+            elem.genres.some(genre => preferences.genres.includes(genre.id)) &&
             (preferences.isPopular ? elem.vote_average > 7.00 : true) &&
-            (preferences.easilyWatchable ? elem["watch/providers"]['results'][preferences.country]['flatrate'].length !== 0 : true) &&
+            (preferences.easilyWatchable ? providerLength !== undefined : true) &&
             (preferences.isOld ? elem.release_date.getTime() < oldCutoff.getTime() : elem.release_date.getTime() >= oldCutoff.getTime())
         )
     })
 
-    for (elem of response.data) {
+    for (elem of responseData) {
         console.log(elem.title)
         // If it's already present in the recommendations, continue
         if (userDetails.recommendations.find((dbElem) => dbElem.MovieDBid === elem.id)) { continue }
