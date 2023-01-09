@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-
+// The database schema used by mongoose to represent the movie recommendations for the user
 const RecommendationSchema = new Schema({
     title: String,
     runtime: Number,

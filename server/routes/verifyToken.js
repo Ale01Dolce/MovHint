@@ -3,24 +3,21 @@ const jwt = require("jsonwebtoken")
 const User = require('../models/userSchema')
 const router = express.Router()
 
+// Express middleware for protecting certain routes, to make sure that the user has a valid access token
 router.use(async (req, res, next) => {
 
-    // console.log(req.cookies)
-
+    // If no token cookie is present, send 400 and pass error to Express 
     if(!req.cookies.token) {
         res.sendStatus(400)
-        // res.redirect(`${process.env.FRONTEND_URL}/login.html`)
         return next(new Error("no token header"))
     }
-
-    // console.log(await User.findOne({sessionToken: req.cookies.token}), jwt.verify(req.cookies.token, process.env.PRIVATE_KEY))
     
+    // If the user has a matching access token and the signature is correct, pass execution to the next middleware
     if(await User.findOne({sessionToken: req.cookies.token}) && jwt.verify(req.cookies.token, process.env.PRIVATE_KEY)) {
         next()
-        
     } else {
+        // Otherwise, send 400 and pass error to Express 
         res.status(400).clearCookie("token").send()
-        // res.redirect(`${process.env.FRONTEND_URL}/login.html`)
         return next(new Error("Invalid Token Header"))
     }
 
