@@ -34,7 +34,10 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
     fetch(`${API_URL}/preferencesFormHandling`, {
         method: "POST",
         credentials: "include",
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            token: localStorage.getItem('token')
+        },
         body: JSON.stringify(data)
     })
         .then(res => {  //After filling out the form
