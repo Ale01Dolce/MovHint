@@ -4,7 +4,7 @@ import { API_URL } from "./config.js";
 fetch(`${API_URL}/logout`, {
 
     method: "POST",
-    credentials: "include"
+    headers: {token: localStorage.getItem('token')}
 
 }).then(response => {
     if (response.ok) {

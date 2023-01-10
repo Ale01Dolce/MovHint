@@ -15,7 +15,7 @@ const corsOption = {
 
 // Definition of the port express is going to use
 const port = process.env.PORT || 3000;
-
+console.log(process.env)
 // Inialization of the connection with the database, using the connection string in .env
 mongoose.connect(process.env.MONGODB_LOGIN);
 

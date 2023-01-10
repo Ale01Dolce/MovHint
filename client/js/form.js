@@ -33,7 +33,6 @@ document.getElementById('form-preferences').addEventListener("submit", (event) =
     document.getElementById('loading-spinner').style.display = 'block'
     fetch(`${API_URL}/preferencesFormHandling`, {
         method: "POST",
-        credentials: "include",
         headers: { 
             'Content-Type': 'application/json',
             token: localStorage.getItem('token')
