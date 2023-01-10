@@ -17,7 +17,7 @@ router.use(async (req, res, next) => {
         next()
     } else {
         // Otherwise, send 400 and pass error to Express 
-        res.status(400).clearCookie("token").send()
+        res.status(400).send()
         return next(new Error("Invalid Token Header"))
     }
 
