@@ -111,25 +111,44 @@
     FB.Event.subscribe('xfbml.render', finished_rendering);
   };
 
+  function handleCredentialResponse(response) {
+    console.log(response);
+    fetch(`${API_URL}/login/google`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(response)
+    })
+      .then(response => response.json())
+      .then(json => {
+        localStorage.setItem('token', json.token)
+        window.location.href = 'dashboard.html'
+      })
+      .catch(() => window.location.href = 'index.html')
+  }
+
   //Callback function when login with Facebook is completed
   //Send the token to the server to fetch the data
   function manageLogin() {
     FB.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        fetch(`${API_URL}/login/fb`, {
+      if(response.status === 'connected') {
+
+        fetch(`${API_URL}/login/google`, {
           method: 'POST',
-          credentials: 'include',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(response.authResponse)
         })
-          .then(response => {
-            if (response.redirected) {
-              window.location.href = response.url;
-            }
-          })
+        .then(res => res.json())
+        .then(json => {
+          localStorage.setItem('token', json.token)
+          window.location.href = 'dashboard.html'
+        })
+        .catch(() => window.location.href = 'index.html')
       }
     });
   }
@@ -141,7 +160,7 @@
   data-client_id="772605528759-tkan5jt8alt1cgdn2a874dh2h5u7rt2b.apps.googleusercontent.com"
   data-context="signin" 
   data-ux_mode="popup" 
-  data-login_uri="http://localhost:3000/api/login/google"
+  data-callback="handleCredentialResponse"
   data-auto_prompt="false">
 </div>
 

@@ -51,7 +51,7 @@ And Google Login:
     ***data-client_id="Your google client ID"***
     data-context="signin" 
     data-ux_mode="popup" 
-    ***data-login_uri="{Your backend URL}/api/login/google"***
+    data-callback="handleCredentialResponse"
     data-auto_prompt="false">
 </div>
 ```
@@ -189,10 +189,10 @@ which can be obtained on the [Facebook developer portal](https://developers.face
 ```html
 <div 
     id="g_id_onload" 
-    data-client_id="Your google client ID"
+    ***data-client_id="Your google client ID"***
     data-context="signin" 
     data-ux_mode="popup" 
-    data-login_uri="{Your backend URL}/api/login/google"
+    data-callback="handleCredentialResponse"
     data-auto_prompt="false">
 </div>
 ```

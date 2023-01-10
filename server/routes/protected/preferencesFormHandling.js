@@ -16,7 +16,7 @@ function getSafe(elem, language) {
 // Endpoint for handling the questionary, using POST http verb
 router.post("/preferencesFormHandling", async (req, res, next) => {
     // Get the user with the corresponding access token
-    var userDetails = await User.findOne({ sessionToken: req.cookies.token })
+    var userDetails = await User.findOne({ sessionToken: req.headers.token })
 
     // Save preferences to database
     userDetails.preferences = req.body
@@ -32,7 +32,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
     }
 
     //Else, get current user...
-    await User.findOneAndUpdate({ sessionToken: req.cookies.token }, { recommendations: [] })
+    await User.findOneAndUpdate({ sessionToken: req.headers.token }, { recommendations: [] })
 
     //...and add the recommendations to the database 
     for (elem of response) {
@@ -51,7 +51,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
             providers: providers
         }
 
-        await User.findOneAndUpdate({ sessionToken: req.cookies.token }, { $push: { recommendations: toAdd } })
+        await User.findOneAndUpdate({ sessionToken: req.headers.token }, { $push: { recommendations: toAdd } })
     }
     res.sendStatus(200)
     return

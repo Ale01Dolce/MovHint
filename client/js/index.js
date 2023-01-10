@@ -3,7 +3,7 @@ import { API_URL } from "./config.js"
 //Changing text and href based on user access
 fetch(`${API_URL}/userDetails`, {
     method: "GET",
-    credentials: "include"
+    headers: { token: localStorage.getItem('token') }
 }).then(response => {
     console.log(response.status)
     if (!response.ok) { //If user is NOT logged in

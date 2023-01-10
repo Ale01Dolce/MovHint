@@ -10,6 +10,7 @@ const cors = require('cors');
 const corsOption = {
   origin: [new URL(process.env.FRONTEND_URL).origin],
   credentials: true,
+  allowedHeaders: ['token', 'content-type']
 };
 
 // Definition of the port express is going to use

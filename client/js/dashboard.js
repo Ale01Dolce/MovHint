@@ -9,7 +9,7 @@ const capitalize = (str, lower = false) =>
 //Changing text and buttons based on user access, add movies if user is logged in
 fetch(`${API_URL}/userDetails`, {
     method: "GET",
-    credentials: "include"
+    headers: { token: localStorage.getItem('token') }
 }).then(response => {
     console.log(response.status)
     //If user is NOT logged in

@@ -6,7 +6,7 @@ const router = express.Router()
 router.get("/userDetails", async (req, res, next) => {
 
     // Get user from database
-    const userDetails = await User.findOne({sessionToken: req.cookies.token})
+    const userDetails = await User.findOne({sessionToken: req.headers.token})
     
     // Return JSON object of the user
     res.send(JSON.stringify(userDetails.toJSON()))

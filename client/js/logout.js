@@ -8,6 +8,7 @@ fetch(`${API_URL}/logout`, {
 
 }).then(response => {
     if (response.ok) {
+        localStorage.removeItem('token')
         window.location.href = "index.html";
     } else {
         window.location.href = "login.html";

@@ -7,13 +7,13 @@ const router = express.Router()
 router.use(async (req, res, next) => {
 
     // If no token cookie is present, send 400 and pass error to Express 
-    if(!req.cookies.token) {
+    if(!req.headers.token) {
         res.sendStatus(400)
         return next(new Error("no token header"))
     }
     
     // If the user has a matching access token and the signature is correct, pass execution to the next middleware
-    if(await User.findOne({sessionToken: req.cookies.token}) && jwt.verify(req.cookies.token, process.env.PRIVATE_KEY)) {
+    if(await User.findOne({sessionToken: req.headers.token}) && jwt.verify(req.headers.token, process.env.PRIVATE_KEY)) {
         next()
     } else {
         // Otherwise, send 400 and pass error to Express 

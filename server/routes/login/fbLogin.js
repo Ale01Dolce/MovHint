@@ -37,9 +37,9 @@ router.post("/login/fb", async (req, res, next) => {
     await currentUser.save()
 
     //Send the access token to the user
-    res.cookie("token", userToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true, secure: true, sameSite: 'none' })
-
-    res.redirect(`${process.env.FRONTEND_URL}/dashboard.html`)
+    // res.cookie("token", userToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true, secure: true, sameSite: 'none' })
+    res.send({token: userToken})
+    // res.redirect(`${process.env.FRONTEND_URL}/dashboard.html`)
 })
 
 module.exports = router

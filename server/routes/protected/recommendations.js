@@ -16,7 +16,7 @@ function getSafe(elem, language) {
 
 router.delete("/recommendations/:id", async (req, res, next) => {
 
-    const userDetails = await User.findOne({ sessionToken: req.cookies.token })
+    const userDetails = await User.findOne({ sessionToken: req.headers.token })
     const toRemove = userDetails.recommendations.findIndex((elem) => elem.MovieDBid === Number(req.params.id))
     console.log(toRemove, Number(req.params.id))
     if(toRemove === -1) { res.status(200).send('Already Missing'); return }
@@ -30,7 +30,7 @@ router.delete("/recommendations/:id", async (req, res, next) => {
 
 router.post("/recommendations", async (req, res, next) => {
 
-    const userDetails = await User.findOne({ sessionToken: req.cookies.token })
+    const userDetails = await User.findOne({ sessionToken: req.headers.token })
     const toUpdate = userDetails.recommendations.findIndex((elem) => elem.MovieDBid === Number(req.body.id))
     console.log(toUpdate, req.body, `${process.env.RECOMMENDATIONS_URL}/recommendations`)
     if (toUpdate === -1) { res.status(200).send('Already Missing'); return }
