@@ -1,4 +1,4 @@
-//Navbar scipt that chage icon and css prop.
+//Navbar script that change icon and css prop.
 let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
