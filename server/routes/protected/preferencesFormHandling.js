@@ -6,7 +6,6 @@ const Popular = require('../../models/popularSchema')
 
 function getSafe(elem, language) {
     try {
-        // console.log(elem["watch/providers"]['results'][language]['flatrate'], language)
         return elem["watch/providers"]['results'][language]['flatrate']
     } catch (e) {
         return undefined;
@@ -27,7 +26,7 @@ router.post("/preferencesFormHandling", async (req, res, next) => {
 
     // If no movies are found, send error code to client
     if (!response) {
-        res.statusCode(500).send()
+        res.status(500).send()
         return
     }
 
