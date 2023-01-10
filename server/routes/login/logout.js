@@ -7,7 +7,7 @@ router.post("/logout", async (req, res, next) => {
     console.log("Logging out...")
 
     // Verify that the token in even present in the first place
-    if (!req.cookies['token']) {
+    if (!req.headers.token) {
         res.sendStatus(200)
         return
     }
@@ -24,7 +24,7 @@ router.post("/logout", async (req, res, next) => {
 
     await currentUser.save()
 
-    res.clearCookie("token").status(200).send()
+    res.status(200).send()
     return
 })
 
