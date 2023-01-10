@@ -117,11 +117,11 @@
 
     fetch(`${window.API_URL}/recommendations`, {
       method: "POST",
-      credentials: "include",
       body: JSON.stringify({ id: movieid }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        token: localStorage.getItem('token')
       }
     }).then(response => {
       console.log(response.status)
@@ -147,7 +147,7 @@
   //Activate the spinners, temporarily deactivate the Ignore button and send a request to the server to remove the movie
   //When the response arrives it unpins the spinners and removes the element from the html
   function remove(movieid) {
-        let movieItem = document.getElementById(movieid)
+    let movieItem = document.getElementById(movieid)
 
     let buttons = movieItem.querySelectorAll('button')
     let spinners = movieItem.querySelectorAll('.loader-dashboard.ignore')
@@ -165,7 +165,7 @@
 
     fetch(`${window.API_URL}/recommendations/${movieid}`, {
       method: "DELETE",
-      credentials: "include",
+      headers: { token: localStorage.getItem('token') },
     }).then(response => {
 
       spinners.forEach((elem) => {

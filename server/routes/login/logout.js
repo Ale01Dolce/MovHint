@@ -13,13 +13,13 @@ router.post("/logout", async (req, res, next) => {
     }
 
     // If no user is present with the token, just delete the cookie
-    if (!await User.findOne({ sessionToken: req.cookies.token })) {
+    if (!await User.findOne({ sessionToken: req.headers.token })) {
         res.sendStatus(200)
         return
     }
 
     // Else, get the user, remove the token from the Database, then delete the cookie from the client
-    const currentUser = await User.findOne({ sessionToken: req.cookies.token })
+    const currentUser = await User.findOne({ sessionToken: req.headers.token })
     currentUser.sessionToken = ''
 
     await currentUser.save()
